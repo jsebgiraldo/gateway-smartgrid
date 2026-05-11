@@ -1,0 +1,31 @@
+graph TB
+    subgraph POWER_BUDGET["Presupuesto de Potencia"]
+        direction LR
+        
+        subgraph SOURCES["Fuentes de Alimentación"]
+            DC["DC Input<br/>9-36V"]
+            POE["PoE 802.3at<br/>25.5W máx"]
+        end
+        
+        subgraph CONSUMERS["Consumidores"]
+            CM4_P["CM4 BCM2711<br/>2.9W typ / 5.5W máx"]
+            NVME_P["NVMe SSD<br/>1.0W typ / 3.0W máx"]
+            HALOW_P["HaLow WM6108<br/>0.5W typ / 1.5W máx"]
+            LTE_P["4G LTE EG25-G<br/>1.0W typ / 3.5W máx"]
+            LORA_P["LoRa WM1302<br/>0.3W typ / 0.8W máx"]
+            OTHER_P["Zigbee+RS485+<br/>TPM+RTC+LEDs<br/>0.6W typ / 1.2W máx"]
+        end
+        
+        TOTAL["TOTAL<br/>~6.3W típico<br/>~15.5W máximo<br/>✅ Margen: 10W"]
+    end
+
+    SOURCES --> CONSUMERS
+    CONSUMERS --> TOTAL
+
+    classDef source fill:#f39c12,stroke:#e67e22,color:#fff,stroke-width:2px
+    classDef consumer fill:#3498db,stroke:#2980b9,color:#fff,stroke-width:2px
+    classDef total fill:#27ae60,stroke:#1e8449,color:#fff,stroke-width:3px
+
+    class DC,POE source
+    class CM4_P,NVME_P,HALOW_P,LTE_P,LORA_P,OTHER_P consumer
+    class TOTAL total

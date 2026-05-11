@@ -1,0 +1,39 @@
+graph LR
+    subgraph CHANGES["Cambios R1000 → Gateway HaLow"]
+        direction TB
+        
+        subgraph KEEP["✅ MANTENER (17)"]
+            K1["CM4 Connectors<br/>Power Supply<br/>USB HUB1 (USB2514BI)"]
+            K2["GbE + PoE 802.3at<br/>RTC DS1339<br/>ATECC608A"]
+            K3["RS485 x2 Aislados<br/>USB-C Debug<br/>UPS SuperCap"]
+            K4["M.2 NVMe<br/>ESD Protection<br/>Level Translators"]
+        end
+        
+        subgraph MOD["🔄 MODIFICAR (8)"]
+            M1["Mini-PCIe #1:<br/>LoRa SPI → HaLow SPI1"]
+            M2["LoRa: SPI → USB variant"]
+            M3["SPI0 CE1 → TPM 2.0"]
+            M4["+ SMA HaLow + SMA LoRa"]
+            M5["Enclosure → IP65"]
+            M6["Device-tree overlays"]
+        end
+        
+        subgraph DEL["❌ ELIMINAR (11) — Ahorro ~$46-71"]
+            D1["HDMI x2 puertos"]
+            D2["Audio codec WM8960"]
+            D3["WiFi extra WL1835MOD"]
+            D4["USB HUB2 + Type-A"]
+            D5["10/100M ETH LAN9512"]
+            D6["RS232 + CAN bus"]
+            D7["microSD + VL805 USB3"]
+            D8["RTL8153 GbE PHY"]
+        end
+    end
+
+    classDef keep fill:#27ae60,stroke:#1e8449,color:#fff,stroke-width:2px
+    classDef mod fill:#f39c12,stroke:#e67e22,color:#fff,stroke-width:2px
+    classDef del fill:#e74c3c,stroke:#c0392b,color:#fff,stroke-width:2px
+
+    class K1,K2,K3,K4 keep
+    class M1,M2,M3,M4,M5,M6 mod
+    class D1,D2,D3,D4,D5,D6,D7,D8 del

@@ -1,0 +1,31 @@
+graph TB
+    CM4_USB["CM4 USB 2.0<br/>480 Mbps"]
+    
+    HUB["USB2514BI<br/>4-port USB 2.0 Hub<br/>(del R1000)"]
+    
+    P1["Port 1<br/>EG25-G<br/>4G LTE<br/>(mini-PCIe USB)"]
+    P2["Port 2<br/>WM1302<br/>LoRa USB<br/>(variant USB)"]
+    P3["Port 3<br/>Zigbee/Thread<br/>USB dongle"]
+    P4["Port 4<br/>Libre/<br/>Debug"]
+    
+    CM4_USB ==> HUB
+    HUB --> P1
+    HUB --> P2
+    HUB --> P3
+    HUB --> P4
+    
+    CM4_PCIE["CM4 PCIe<br/>Gen2 x1<br/>~500 MB/s"]
+    NVME["NVMe M.2<br/>Key-M<br/>256GB - 1TB<br/>(VL805 eliminado)"]
+    
+    CM4_PCIE ==> NVME
+
+    classDef cm4 fill:#2980b9,stroke:#1a5276,color:#fff,stroke-width:3px
+    classDef hub fill:#8e44ad,stroke:#6c3483,color:#fff,stroke-width:2px
+    classDef port fill:#27ae60,stroke:#1e8449,color:#fff,stroke-width:2px
+    classDef pcie fill:#e67e22,stroke:#d35400,color:#fff,stroke-width:2px
+    classDef nvme fill:#2c3e50,stroke:#1a252f,color:#fff,stroke-width:2px
+
+    class CM4_USB,CM4_PCIE cm4
+    class HUB hub
+    class P1,P2,P3,P4 port
+    class NVME nvme

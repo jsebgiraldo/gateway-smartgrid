@@ -1,0 +1,69 @@
+graph TB
+    subgraph MGMT["MANAGEMENT PLANE"]
+        OW_CTRL["OpenWISP Controller<br/>(remoto)"]
+        OW_CFG["openwisp-config<br/>(local)"]
+        OW_MON["openwisp-monitoring<br/>(local)"]
+        OW_FW["Firmware Upgrader"]
+        OW_TOPO["Network Topology"]
+        OW_CTRL <--> OW_CFG
+        OW_CTRL <--> OW_MON
+        OW_CTRL --> OW_FW
+        OW_CTRL --> OW_TOPO
+    end
+
+    subgraph APP["APPLICATION PLANE"]
+        TB["Thingsboard Edge CE<br/>────────────────<br/>Rule Engine<br/>Device Management<br/>Dashboards (local)<br/>Alarms & Notifications<br/>MQTT Transport<br/>Store & Forward<br/>Cloud Sync (gRPC)"]
+        ML["ML Sidecar (Container)<br/>────────────────<br/>Python 3.11<br/>TFLite Runtime<br/>ONNX Runtime<br/>Anomaly Detection<br/>Predictive Maint.<br/>REST API (FastAPI)"]
+        TB <-->|REST API| ML
+    end
+
+    subgraph NET["NETWORKING PLANE - OpenWRT"]
+        LUCI["LuCI Web UI"]
+        NFT["nftables Firewall"]
+        MESH_D["802.11s mesh<br/>(wpa_supplicant)"]
+        HALOW_D["HaLow SPI driver"]
+        WG["WireGuard VPN"]
+        MQTT["Mosquitto MQTT"]
+        LORA_PF["LoRa Packet<br/>Forwarder"]
+        DNS["dnsmasq / DHCP"]
+    end
+
+    subgraph KERNEL["KERNEL / DRIVERS"]
+        LINUX["Linux 6.6+<br/>OpenWRT kernel<br/>(bcm27xx target)"]
+        MAC80211["mac80211<br/>(802.11s)"]
+        SPI_DRV["SPI driver<br/>(WM6108 .bin)"]
+        USB_DRV["USB (EHCI)"]
+        NVME_DRV["NVMe driver"]
+        SERIAL["RS485 / ttyAMA"]
+        I2C_DRV["I2C / GPIO"]
+    end
+
+    subgraph HW["HARDWARE - CM4 + Carrier Board R1000 mod."]
+        BCM["BCM2711"]
+        EMMC["eMMC 32GB"]
+        SSD["NVMe SSD"]
+        WM6108["WM6108 HaLow"]
+        WM1302["WM1302 LoRa"]
+        EG25["EG25-G 4G"]
+        ZIG["Zigbee USB"]
+        RS485_HW["RS485"]
+        TPM_HW["TPM 2.0"]
+        RTC_HW["RTC"]
+    end
+
+    MGMT --> APP
+    APP --> NET
+    NET --> KERNEL
+    KERNEL --> HW
+
+    classDef mgmt fill:#8e44ad,stroke:#6c3483,color:#fff,stroke-width:2px
+    classDef app fill:#2980b9,stroke:#1a5276,color:#fff,stroke-width:2px
+    classDef net fill:#27ae60,stroke:#1e8449,color:#fff,stroke-width:2px
+    classDef kernel fill:#e67e22,stroke:#d35400,color:#fff,stroke-width:2px
+    classDef hw fill:#2c3e50,stroke:#1a252f,color:#fff,stroke-width:2px
+
+    class OW_CTRL,OW_CFG,OW_MON,OW_FW,OW_TOPO mgmt
+    class TB,ML app
+    class LUCI,NFT,MESH_D,HALOW_D,WG,MQTT,LORA_PF,DNS net
+    class LINUX,MAC80211,SPI_DRV,USB_DRV,NVME_DRV,SERIAL,I2C_DRV kernel
+    class BCM,EMMC,SSD,WM6108,WM1302,EG25,ZIG,RS485_HW,TPM_HW,RTC_HW hw

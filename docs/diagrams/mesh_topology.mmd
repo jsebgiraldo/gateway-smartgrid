@@ -1,0 +1,42 @@
+graph TB
+    CLOUD["☁️ CLOUD<br/>Thingsboard Server<br/>+ OpenWISP Controller"]
+
+    subgraph MESH["Red Mesh HaLow 802.11s — 902-928 MHz"]
+        GW1["🏠 GATEWAY #1<br/>(Root Mesh AP)<br/>ETH + 4G WAN"]
+        GW2["📡 GATEWAY #2<br/>(Mesh Peer)"]
+        GW3["📡 GATEWAY #3<br/>(Mesh Peer)"]
+        GW4["📡 GATEWAY #4<br/>(Leaf)"]
+        GW5["📡 GATEWAY #5<br/>(Leaf)"]
+        GW6["📡 GATEWAY #6<br/>(Leaf)"]
+        GW7["📡 GATEWAY #7<br/>(Leaf)"]
+    end
+
+    CLOUD ===|"VPN WireGuard<br/>4G LTE / Ethernet"| GW1
+    GW1 ---|"HaLow 802.11s<br/>902-928 MHz"| GW2
+    GW1 ---|"HaLow 802.11s<br/>902-928 MHz"| GW3
+    GW2 ---|"HaLow 802.11s"| GW4
+    GW2 ---|"HaLow 802.11s"| GW5
+    GW3 ---|"HaLow 802.11s"| GW6
+    GW3 ---|"HaLow 802.11s"| GW7
+
+    S1["🌡️ Sensores IoT<br/>~200+ por GW"]
+    S2["🌡️ Sensores IoT<br/>~200+ por GW"]
+    S3["🌡️ Sensores IoT<br/>~200+ por GW"]
+    S4["🌡️ Sensores IoT<br/>~200+ por GW"]
+
+    GW4 -.->|HaLow AP| S1
+    GW5 -.->|HaLow AP| S2
+    GW6 -.->|HaLow AP| S3
+    GW7 -.->|HaLow AP| S4
+
+    classDef cloud fill:#3498db,stroke:#2980b9,color:#fff,stroke-width:3px
+    classDef root fill:#e74c3c,stroke:#c0392b,color:#fff,stroke-width:3px
+    classDef peer fill:#f39c12,stroke:#e67e22,color:#fff,stroke-width:2px
+    classDef leaf fill:#27ae60,stroke:#1e8449,color:#fff,stroke-width:2px
+    classDef sensor fill:#95a5a6,stroke:#7f8c8d,color:#fff,stroke-width:1px
+
+    class CLOUD cloud
+    class GW1 root
+    class GW2,GW3 peer
+    class GW4,GW5,GW6,GW7 leaf
+    class S1,S2,S3,S4 sensor

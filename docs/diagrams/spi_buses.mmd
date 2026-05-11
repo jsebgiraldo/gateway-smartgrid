@@ -1,0 +1,39 @@
+graph LR
+    subgraph SPI0["SPI0 Bus — Compartido (GPIO 7-11)"]
+        direction TB
+        SPI0_CLK["SCLK (GPIO 11)"]
+        SPI0_MOSI["MOSI (GPIO 10)"]
+        SPI0_MISO["MISO (GPIO 9)"]
+        
+        subgraph CE0["CE0 (GPIO 8)"]
+            LORA["WM1302<br/>LoRa SX1302"]
+        end
+        
+        subgraph CE1["CE1 (GPIO 7)"]
+            TPM["SLB9670<br/>TPM 2.0"]
+        end
+    end
+    
+    subgraph SPI1["SPI1 Bus — Dedicado ★ (GPIO 16-21)"]
+        direction TB
+        SPI1_CLK["SCLK (GPIO 21)"]
+        SPI1_MOSI["MOSI (GPIO 20)"]
+        SPI1_MISO["MISO (GPIO 19)"]
+        
+        subgraph CE0_1["CE0 (GPIO 18)"]
+            HALOW["Wio-WM6108<br/>Wi-Fi HaLow<br/>902-928 MHz"]
+        end
+    end
+    
+    BCM["BCM2711<br/>CM4"] --> SPI0
+    BCM --> SPI1
+
+    classDef bcm fill:#2980b9,stroke:#1a5276,color:#fff,stroke-width:3px
+    classDef spi0 fill:#8e44ad,stroke:#6c3483,color:#fff,stroke-width:2px
+    classDef spi1 fill:#e74c3c,stroke:#c0392b,color:#fff,stroke-width:2px
+    classDef device fill:#27ae60,stroke:#1e8449,color:#fff,stroke-width:2px
+
+    class BCM bcm
+    class SPI0_CLK,SPI0_MOSI,SPI0_MISO spi0
+    class SPI1_CLK,SPI1_MOSI,SPI1_MISO spi1
+    class LORA,TPM,HALOW device

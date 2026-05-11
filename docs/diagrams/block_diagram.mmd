@@ -1,0 +1,89 @@
+graph TB
+    subgraph POWER["⚡ POWER SUBSYSTEM"]
+        DC["DC Input<br/>9-36V"]
+        POE["PoE PD<br/>802.3at 25.5W"]
+        BUCK["TPS54302 Buck<br/>+ LDOs<br/>5V / 3.3V / 1.8V"]
+        SUPERCAP["SuperCap<br/>UPS >30s"]
+        DC --> BUCK
+        POE --> BUCK
+        BUCK -.-> SUPERCAP
+    end
+
+    subgraph CM4["🧠 CM4 - BCM2711"]
+        CPU["Quad Cortex-A72<br/>@ 1.5GHz<br/>8GB LPDDR4<br/>32GB eMMC"]
+        WIFI_INT["WiFi ac<br/>+ BLE 5.0<br/>(on-chip)"]
+        CPU --- WIFI_INT
+    end
+
+    BUCK ==> CM4
+
+    subgraph SPI0_BUS["SPI0 Bus - Compartido"]
+        LORA_SPI["WM1302 LoRa<br/>(SPI0 CE0)"]
+        TPM["SLB9670<br/>TPM 2.0<br/>(SPI0 CE1)"]
+    end
+
+    subgraph SPI1_BUS["SPI1 Bus - Dedicado ★"]
+        HALOW["Wio-WM6108<br/>Wi-Fi HaLow<br/>902-928 MHz<br/>(SPI1 CE0)"]
+    end
+
+    subgraph USB_TREE["USB 2.0 Hub - USB2514BI"]
+        LTE["EG25-G<br/>4G LTE"]
+        LORA_USB["WM1302<br/>LoRa USB"]
+        ZIGBEE["Zigbee/<br/>Thread USB"]
+        SPARE["Puerto<br/>Libre"]
+    end
+
+    subgraph STORAGE["PCIe Gen2 x1"]
+        NVME["NVMe M.2<br/>256GB - 1TB"]
+    end
+
+    subgraph INDUSTRIAL["Interfaces Industriales"]
+        RS485_1["RS485 Ch1<br/>Aislado"]
+        RS485_2["RS485 Ch2<br/>Aislado"]
+        GBE["GbE RJ45<br/>+ PoE PD"]
+        DEBUG["USB-C<br/>Debug UART"]
+    end
+
+    subgraph I2C_BUS["I2C Bus"]
+        RTC["DS1339<br/>RTC"]
+        ATECC["ATECC608A<br/>Crypto"]
+        IOEXP["HC32L<br/>IO Exp"]
+    end
+
+    subgraph ANTENNAS["Antenas Externas SMA"]
+        ANT_HALOW["🔵 SMA<br/>HaLow<br/>915 MHz"]
+        ANT_LORA["🟢 SMA<br/>LoRa<br/>915 MHz"]
+        ANT_4G["🔴 SMA<br/>4G LTE"]
+    end
+
+    CM4 -->|SPI0| SPI0_BUS
+    CM4 -->|"SPI1 ★"| SPI1_BUS
+    CM4 -->|USB 2.0| USB_TREE
+    CM4 -->|PCIe| STORAGE
+    CM4 -->|UART| RS485_1
+    CM4 -->|UART| RS485_2
+    CM4 -->|RGMII| GBE
+    CM4 -->|UART0| DEBUG
+    CM4 -->|I2C| I2C_BUS
+
+    HALOW --- ANT_HALOW
+    LORA_SPI --- ANT_LORA
+    LTE --- ANT_4G
+
+    classDef power fill:#f39c12,stroke:#e67e22,color:#fff,stroke-width:2px
+    classDef cm4 fill:#2980b9,stroke:#1a5276,color:#fff,stroke-width:2px
+    classDef halow fill:#e74c3c,stroke:#c0392b,color:#fff,stroke-width:2px
+    classDef spi fill:#8e44ad,stroke:#6c3483,color:#fff,stroke-width:2px
+    classDef usb fill:#27ae60,stroke:#1e8449,color:#fff,stroke-width:2px
+    classDef storage fill:#2c3e50,stroke:#1a252f,color:#fff,stroke-width:2px
+    classDef industrial fill:#16a085,stroke:#0e6655,color:#fff,stroke-width:2px
+    classDef antenna fill:#95a5a6,stroke:#7f8c8d,color:#fff,stroke-width:2px
+
+    class DC,POE,BUCK,SUPERCAP power
+    class CPU,WIFI_INT cm4
+    class HALOW halow
+    class LORA_SPI,TPM spi
+    class LTE,LORA_USB,ZIGBEE,SPARE usb
+    class NVME storage
+    class RS485_1,RS485_2,GBE,DEBUG,RTC,ATECC,IOEXP industrial
+    class ANT_HALOW,ANT_LORA,ANT_4G antenna
