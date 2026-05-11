@@ -1,0 +1,27 @@
+name: orchestrator-ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: List submodule pins
+        run: git submodule status --recursive
+
+      - name: Verify all submodule SHAs are reachable
+        run: |
+          set -e
+          git submodule foreach --quiet '
+            echo "--- $name @ $sha1 ---"
+            git rev-parse --verify "$sha1" >/dev/null
+          '

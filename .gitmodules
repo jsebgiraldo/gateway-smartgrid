@@ -1,0 +1,16 @@
+[submodule "repos/mcp-openwrt-ssh"]
+	path = repos/mcp-openwrt-ssh
+	url = https://github.com/jsebgiraldo/openwrt_ssh_mcp.git
+	branch = main
+[submodule "repos/flash-tool"]
+	path = repos/flash-tool
+	url = https://github.com/IoT-UNal/Unal-Flash-tool.git
+	branch = main
+[submodule "repos/firmware-ami-lwm2m"]
+	path = repos/firmware-ami-lwm2m
+	url = https://github.com/jsebgiraldo/ami-lwm2m-node.git
+	branch = master
+[submodule "repos/openwrt-morse"]
+	path = repos/openwrt-morse
+	url = https://github.com/jsebgiraldo/openwrt.git
+	branch = 2.9-dev
