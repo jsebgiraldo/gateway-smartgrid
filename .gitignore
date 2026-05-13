@@ -1,0 +1,13 @@
+# Secrets — never commit these (only *.env.example templates allowed)
+*.env
+!*.env.example
+
+# MCP audit logs
+logs/
+*.log
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
