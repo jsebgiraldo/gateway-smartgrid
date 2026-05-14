@@ -1,0 +1,43 @@
+name: gateway-observability
+
+# Phase 1 observability stack: Prometheus scrapes the edge gateway's
+# node-exporter, Grafana visualizes it. ThingsBoard central server is a
+# separate stack (services/thingsboard/, not yet created).
+
+services:
+  prometheus:
+    image: prom/prometheus:v3.1.0
+    container_name: gw-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+      - '--web.enable-lifecycle'
+
+  grafana:
+    image: grafana/grafana:11.4.0
+    container_name: gw-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      # Real credentials live here (gitignored). Copy .env.example first.
+      - ../../secrets/observability.env
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+
+volumes:
+  prometheus-data:
+    name: gw-prometheus-data
+  grafana-data:
+    name: gw-grafana-data

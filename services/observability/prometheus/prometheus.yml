@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # Prometheus scraping itself
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Edge gateway — prometheus-node-exporter-lua on OpenWrt
+  # Listens on the WAN interface (eth0). Firewall rule
+  # "Allow-Prometheus-NodeExporter" on the edge permits 192.168.8.0/24 → :9100.
+  - job_name: edge-node
+    static_configs:
+      - targets: ['192.168.8.175:9100']
+        labels:
+          device: r1000-wm6108-a3dd
+          role: edge-gateway
+          site: unal
+
+  # Future targets (uncomment when wired):
+  #  - job_name: edge-tb-edge        # ThingsBoard Edge /actuator/prometheus
+  #  - job_name: router-node         # node-exporter on the GL-MT6000 router
