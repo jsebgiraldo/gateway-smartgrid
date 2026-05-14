@@ -1,0 +1,69 @@
+name: tb-edge
+
+# ThingsBoard Edge — runs ON THE EDGE DEVICE (192.168.8.175), not the PC.
+# Reconstructed from `docker inspect` of the pre-existing tb-edge-v2 +
+# tb-edge-postgres containers, so it can be managed reproducibly going forward.
+#
+# Difference vs. the original `docker run` deployment:
+#   - CLOUD_* now point at the central ThingsBoard server on the PC
+#     (was CLOUD_ROUTING_KEY=disabled / CLOUD_RPC_HOST=127.0.0.1 = standalone).
+#   - METRICS_* added so Prometheus on the PC can scrape tb-edge.
+#
+# Deploy to the edge:
+#   scp -r services/tb-edge root@192.168.8.175:/opt/docker/tb-edge
+#   scp secrets/tb-edge-cloud.env root@192.168.8.175:/opt/docker/tb-edge/tb-edge-cloud.env
+#   ssh root@192.168.8.175 'cd /opt/docker/tb-edge && docker compose up -d'
+# The bind mounts under /opt/docker/tb-edge-data are preserved — no data loss.
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: tb-edge-postgres
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: thingsboard_edge
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - /opt/docker/tb-edge-data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d thingsboard_edge"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  tb-edge:
+    image: thingsboard/tb-edge:4.3.1.1EDGE
+    container_name: tb-edge-v2
+    network_mode: host
+    restart: unless-stopped
+    env_file:
+      # CLOUD_RPC_HOST / CLOUD_RPC_PORT / CLOUD_ROUTING_KEY / CLOUD_ROUTING_SECRET
+      # Copy tb-edge-cloud.env.example -> tb-edge-cloud.env and fill in.
+      - tb-edge-cloud.env
+    environment:
+      # --- transports (unchanged from original deployment) ---
+      HTTP_BIND_PORT: "8090"
+      MQTT_BIND_ADDRESS: "0.0.0.0"
+      MQTT_BIND_PORT: "1883"
+      COAP_ENABLED: "false"
+      COAP_SERVER_ENABLED: "false"
+      LWM2M_ENABLED: "true"
+      LWM2M_BIND_PORT: "5683"
+      LWM2M_SECURITY_BIND_PORT: "5684"
+      LWM2M_ENABLED_BS: "false"
+      # --- local edge database ---
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://127.0.0.1:5432/thingsboard_edge"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      # --- JVM (unchanged) ---
+      JAVA_OPTS: "-Xms256m -Xmx768m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true -Djava.net.preferIPv6Stack=true"
+      # --- Phase 3: expose Prometheus metrics at :8090/actuator/prometheus ---
+      METRICS_ENABLED: "true"
+      METRICS_ENDPOINTS_EXPOSE: "prometheus"
+    volumes:
+      - /opt/docker/tb-edge-data:/data
+    depends_on:
+      postgres:
+        condition: service_healthy

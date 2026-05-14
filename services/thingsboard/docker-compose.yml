@@ -1,0 +1,61 @@
+name: gateway-thingsboard
+
+# Central ThingsBoard CE server. The edge device (192.168.8.175) runs
+# thingsboard/tb-edge:4.3.1.1EDGE which connects up to this server's edge-RPC
+# port (7070). Version 4.3.1.1 is matched to the edge's tb-edge version.
+#
+# Queue: in-memory (default, single-node). No Kafka — keeps RAM down.
+#
+# First-time setup (schema install) — run ONCE before `up`:
+#   docker compose run --rm -e INSTALL_TB=true thingsboard-ce
+# Then:
+#   docker compose up -d
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: gw-tb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: thingsboard
+      POSTGRES_PASSWORD: postgres        # local-only DB, port not published
+    volumes:
+      - tb-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d thingsboard"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  thingsboard-ce:
+    image: thingsboard/tb-node:4.3.1.1
+    container_name: gw-thingsboard
+    restart: unless-stopped
+    ports:
+      - "8080:8080"     # web UI + REST API + /actuator/prometheus
+      - "7070:7070"     # edge RPC — tb-edge on the edge device connects here
+      - "1883:1883"     # MQTT transport
+    environment:
+      TB_SERVICE_ID: tb-ce-node
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/thingsboard
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      TB_QUEUE_TYPE: in-memory
+      JAVA_OPTS: "-Xms512m -Xmx1g -XX:+UseG1GC"
+      # Phase 3 — expose Prometheus metrics at :8080/actuator/prometheus
+      METRICS_ENABLED: "true"
+      METRICS_ENDPOINTS_EXPOSE: "prometheus"
+    volumes:
+      - tb-data:/data
+      - tb-logs:/var/log/thingsboard
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  tb-postgres-data:
+    name: gw-tb-postgres-data
+  tb-data:
+    name: gw-tb-data
+  tb-logs:
+    name: gw-tb-logs
