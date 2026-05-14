@@ -1,6 +1,8 @@
 # Secrets — never commit these (only *.env.example templates allowed)
 *.env
 !*.env.example
+# Credentials reference docs live in secrets/ and must never be committed
+secrets/*.md
 
 # MCP audit logs
 logs/
@@ -11,3 +13,4 @@ logs/
 Thumbs.db
 .vscode/
 *.swp
+backups/
