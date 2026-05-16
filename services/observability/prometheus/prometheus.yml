@@ -52,3 +52,22 @@ scrape_configs:
           role: edge-application
           host: r1000-wm6108-a3dd
           application: tb-edge          # so JVM Micrometer dashboards (filter by 'application') pick it up
+
+  # Raspberry Pi 4 — the production edge (OTBR + LwM2M)
+  - job_name: pi4-node
+    static_configs:
+      - targets: ['192.168.8.111:9100']
+        labels:
+          host: pi4-ekh01
+          role: edge-gateway-prod
+          site: unal
+
+  - job_name: pi4-tb-edge
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ['192.168.8.111:8090']
+        labels:
+          service: tb-edge
+          role: edge-application-prod
+          host: pi4-ekh01
+          application: pi4-tb-edge

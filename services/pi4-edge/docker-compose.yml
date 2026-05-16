@@ -1,0 +1,76 @@
+name: pi4-edge
+
+# ThingsBoard Edge on the Raspberry Pi 4 (192.168.8.111) — the production edge.
+# Pi4 has ~ 3.65 GB RAM available and 58 GB disk, so we can size the JVM
+# generously vs the R1000 (which has 1.85 GB RAM and 7 GB disk).
+#
+# Edge entity in central: edge-pi4-ekh01 (id ffead9f0-5179-...)
+# Routing key/secret in secrets/pi4-edge-cloud.env (gitignored)
+#
+# Deploy from PC:
+#   scp services/pi4-edge/docker-compose.yml  root@192.168.8.111:/opt/docker/pi4-edge/docker-compose.yml
+#   scp secrets/pi4-edge-cloud.env            root@192.168.8.111:/opt/docker/pi4-edge/tb-edge-cloud.env
+#   ssh root@192.168.8.111 'cd /opt/docker/pi4-edge && docker compose up -d'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: pi4-edge-postgres
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: thingsboard_edge
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    # Same conservative tuning as R1000 — workload is similar, no benefit
+    # in raising shared_buffers for a single-app DB.
+    command:
+      - postgres
+      - -c
+      - shared_buffers=32MB
+      - -c
+      - effective_cache_size=256MB     # slightly bigger hint than R1000 (more RAM here)
+      - -c
+      - maintenance_work_mem=32MB
+      - -c
+      - max_connections=20
+    volumes:
+      - /opt/docker/pi4-edge-data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d thingsboard_edge"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  tb-edge:
+    image: thingsboard/tb-edge:4.3.1.1EDGE
+    container_name: pi4-edge-v2
+    network_mode: host
+    restart: unless-stopped
+    env_file:
+      - tb-edge-cloud.env
+    environment:
+      # transports
+      HTTP_BIND_PORT: "8090"
+      MQTT_BIND_ADDRESS: "0.0.0.0"
+      MQTT_BIND_PORT: "1883"
+      COAP_ENABLED: "false"
+      COAP_SERVER_ENABLED: "false"
+      LWM2M_ENABLED: "true"
+      LWM2M_BIND_PORT: "5683"
+      LWM2M_SECURITY_BIND_PORT: "5684"
+      LWM2M_ENABLED_BS: "false"
+      # local edge DB
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://127.0.0.1:5432/thingsboard_edge"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      # JVM — Pi4 has 3.65 GB available, can afford a bigger heap
+      JAVA_OPTS: "-Xms512m -Xmx1g -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true -Djava.net.preferIPv6Stack=true"
+      # Prometheus actuator metrics
+      METRICS_ENABLED: "true"
+      METRICS_ENDPOINTS_EXPOSE: "prometheus"
+    volumes:
+      - /opt/docker/pi4-edge-data:/data
+    depends_on:
+      postgres:
+        condition: service_healthy
