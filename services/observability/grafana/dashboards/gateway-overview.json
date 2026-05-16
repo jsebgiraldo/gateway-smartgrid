@@ -1,0 +1,183 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "schemaVersion": 39,
+  "tags": ["gateway", "overview", "smart-grid"],
+  "templating": {"list": []},
+  "time": {"from": "now-1h", "to": "now"},
+  "timepicker": {},
+  "timezone": "",
+  "title": "Gateway Overview",
+  "uid": "gateway-overview",
+  "version": 1,
+  "weekStart": "",
+  "refresh": "30s",
+  "panels": [
+    {"type":"row","title":"Edge OS  (192.168.8.175)","collapsed":false,"gridPos":{"x":0,"y":0,"w":24,"h":1},"id":1,"panels":[]},
+
+    {"type":"gauge","title":"Edge RAM available","id":2,"gridPos":{"x":0,"y":1,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"100 * node_memory_MemAvailable_bytes{job=\"edge-node\"} / node_memory_MemTotal_bytes{job=\"edge-node\"}"}],
+     "fieldConfig":{"defaults":{"unit":"percent","min":0,"max":100,
+       "thresholds":{"mode":"absolute","steps":[{"color":"red","value":null},{"color":"orange","value":15},{"color":"green","value":30}]}}},
+     "options":{"showThresholdLabels":false,"showThresholdMarkers":true}},
+
+    {"type":"stat","title":"Edge load1 (4 cores)","id":3,"gridPos":{"x":6,"y":1,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"node_load1{job=\"edge-node\"}"}],
+     "fieldConfig":{"defaults":{"unit":"none","decimals":2,
+       "thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":2},{"color":"red","value":3.5}]}}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"CPU temp","id":4,"gridPos":{"x":12,"y":1,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"node_thermal_zone_temp{job=\"edge-node\",type=\"cpu-thermal\"}"}],
+     "fieldConfig":{"defaults":{"unit":"celsius","decimals":1,
+       "thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":65},{"color":"red","value":80}]}}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Edge uptime","id":5,"gridPos":{"x":18,"y":1,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"time() - node_boot_time_seconds{job=\"edge-node\"}"}],
+     "fieldConfig":{"defaults":{"unit":"s","decimals":0}},
+     "options":{"colorMode":"none","graphMode":"none","textMode":"auto"}},
+
+    {"type":"row","title":"tb-edge JVM  (the dominant consumer)","collapsed":false,"gridPos":{"x":0,"y":6,"w":24,"h":1},"id":6,"panels":[]},
+
+    {"type":"stat","title":"tb-edge JVM RSS (heap committed + non-heap)","id":7,"gridPos":{"x":0,"y":7,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"(sum(jvm_memory_committed_bytes{application=\"tb-edge\",area=\"heap\"}) + sum(jvm_memory_used_bytes{application=\"tb-edge\",area=\"nonheap\"})) / 1024 / 1024"}],
+     "fieldConfig":{"defaults":{"unit":"decmbytes","decimals":0,
+       "thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":900},{"color":"red","value":1100}]}}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"gauge","title":"Heap used / max","id":8,"gridPos":{"x":6,"y":7,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"100 * sum(jvm_memory_used_bytes{application=\"tb-edge\",area=\"heap\"}) / scalar(sum(jvm_memory_max_bytes{application=\"tb-edge\",area=\"heap\"} > 0))"}],
+     "fieldConfig":{"defaults":{"unit":"percent","min":0,"max":100,
+       "thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":60},{"color":"red","value":85}]}}},
+     "options":{"showThresholdLabels":false,"showThresholdMarkers":true}},
+
+    {"type":"stat","title":"CPU process (1.0 = 1 full core)","id":9,"gridPos":{"x":12,"y":7,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"process_cpu_usage{application=\"tb-edge\"}"}],
+     "fieldConfig":{"defaults":{"unit":"percentunit","decimals":2,
+       "thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":0.6},{"color":"red","value":0.85}]}}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Live threads","id":10,"gridPos":{"x":18,"y":7,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"jvm_threads_live_threads{application=\"tb-edge\"}"}],
+     "fieldConfig":{"defaults":{"unit":"none","decimals":0,
+       "thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":300},{"color":"red","value":500}]}}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"row","title":"TB Central JVM  (this PC)","collapsed":false,"gridPos":{"x":0,"y":12,"w":24,"h":1},"id":11,"panels":[]},
+
+    {"type":"stat","title":"Central JVM RSS","id":12,"gridPos":{"x":0,"y":13,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"(sum(jvm_memory_committed_bytes{application=\"thingsboard-ce\",area=\"heap\"}) + sum(jvm_memory_used_bytes{application=\"thingsboard-ce\",area=\"nonheap\"})) / 1024 / 1024"}],
+     "fieldConfig":{"defaults":{"unit":"decmbytes","decimals":0}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Central CPU process","id":13,"gridPos":{"x":6,"y":13,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"process_cpu_usage{application=\"thingsboard-ce\"}"}],
+     "fieldConfig":{"defaults":{"unit":"percentunit","decimals":2}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Central live threads","id":14,"gridPos":{"x":12,"y":13,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"jvm_threads_live_threads{application=\"thingsboard-ce\"}"}],
+     "fieldConfig":{"defaults":{"unit":"none","decimals":0}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Central uptime","id":15,"gridPos":{"x":18,"y":13,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"process_uptime_seconds{application=\"thingsboard-ce\"}"}],
+     "fieldConfig":{"defaults":{"unit":"s","decimals":0}},
+     "options":{"colorMode":"none","graphMode":"none","textMode":"auto"}},
+
+    {"type":"row","title":"Router + Network","collapsed":false,"gridPos":{"x":0,"y":18,"w":24,"h":1},"id":16,"panels":[]},
+
+    {"type":"gauge","title":"Router RAM available","id":17,"gridPos":{"x":0,"y":19,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"100 * node_memory_MemAvailable_bytes{job=\"router-node\"} / node_memory_MemTotal_bytes{job=\"router-node\"}"}],
+     "fieldConfig":{"defaults":{"unit":"percent","min":0,"max":100,
+       "thresholds":{"mode":"absolute","steps":[{"color":"red","value":null},{"color":"orange","value":20},{"color":"green","value":40}]}}},
+     "options":{"showThresholdLabels":false,"showThresholdMarkers":true}},
+
+    {"type":"stat","title":"Router load1","id":18,"gridPos":{"x":6,"y":19,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"node_load1{job=\"router-node\"}"}],
+     "fieldConfig":{"defaults":{"unit":"none","decimals":2}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Edge eth0 tx","id":19,"gridPos":{"x":12,"y":19,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"irate(node_network_transmit_bytes_total{job=\"edge-node\",device=\"eth0\"}[2m])"}],
+     "fieldConfig":{"defaults":{"unit":"binBps","decimals":1}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Thread mesh (wpan0) rx","id":20,"gridPos":{"x":18,"y":19,"w":6,"h":5},
+     "datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"irate(node_network_receive_bytes_total{job=\"edge-node\",device=\"wpan0\"}[2m])"}],
+     "fieldConfig":{"defaults":{"unit":"binBps","decimals":1}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"row","title":"Trends  (capacity planning)","collapsed":false,"gridPos":{"x":0,"y":24,"w":24,"h":1},"id":21,"panels":[]},
+
+    {"type":"timeseries","title":"Edge RAM available","id":22,"gridPos":{"x":0,"y":25,"w":12,"h":8},
+     "datasource":"Prometheus",
+     "targets":[
+       {"refId":"A","expr":"node_memory_MemAvailable_bytes{job=\"edge-node\"} / 1024 / 1024","legendFormat":"available"},
+       {"refId":"B","expr":"node_memory_MemFree_bytes{job=\"edge-node\"} / 1024 / 1024","legendFormat":"free"},
+       {"refId":"C","expr":"node_memory_Cached_bytes{job=\"edge-node\"} / 1024 / 1024","legendFormat":"cached"}
+     ],
+     "fieldConfig":{"defaults":{"unit":"decmbytes","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}}},
+
+    {"type":"timeseries","title":"tb-edge JVM heap (committed vs used)","id":23,"gridPos":{"x":12,"y":25,"w":12,"h":8},
+     "datasource":"Prometheus",
+     "targets":[
+       {"refId":"A","expr":"sum(jvm_memory_committed_bytes{application=\"tb-edge\",area=\"heap\"}) / 1024 / 1024","legendFormat":"heap committed"},
+       {"refId":"B","expr":"sum(jvm_memory_used_bytes{application=\"tb-edge\",area=\"heap\"}) / 1024 / 1024","legendFormat":"heap used"},
+       {"refId":"C","expr":"sum(jvm_memory_used_bytes{application=\"tb-edge\",area=\"nonheap\"}) / 1024 / 1024","legendFormat":"non-heap used"}
+     ],
+     "fieldConfig":{"defaults":{"unit":"decmbytes","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}}},
+
+    {"type":"timeseries","title":"tb-edge CPU process (1.0 = full core)","id":24,"gridPos":{"x":0,"y":33,"w":12,"h":8},
+     "datasource":"Prometheus",
+     "targets":[
+       {"refId":"A","expr":"process_cpu_usage{application=\"tb-edge\"}","legendFormat":"tb-edge"},
+       {"refId":"B","expr":"process_cpu_usage{application=\"thingsboard-ce\"}","legendFormat":"central"}
+     ],
+     "fieldConfig":{"defaults":{"unit":"percentunit","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}}},
+
+    {"type":"timeseries","title":"Edge network traffic (per interface, RX+TX)","id":25,"gridPos":{"x":12,"y":33,"w":12,"h":8},
+     "datasource":"Prometheus",
+     "targets":[
+       {"refId":"A","expr":"irate(node_network_receive_bytes_total{job=\"edge-node\",device!~\"lo|docker0\"}[2m]) + irate(node_network_transmit_bytes_total{job=\"edge-node\",device!~\"lo|docker0\"}[2m])","legendFormat":"{{device}}"}
+     ],
+     "fieldConfig":{"defaults":{"unit":"binBps","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}}},
+
+    {"type":"timeseries","title":"tb-edge GC pause time (s/s)","id":26,"gridPos":{"x":0,"y":41,"w":12,"h":8},
+     "datasource":"Prometheus",
+     "targets":[
+       {"refId":"A","expr":"rate(jvm_gc_pause_seconds_sum{application=\"tb-edge\"}[5m])","legendFormat":"{{action}} / {{cause}}"}
+     ],
+     "fieldConfig":{"defaults":{"unit":"s","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}}},
+
+    {"type":"timeseries","title":"Thread mesh (wpan0) traffic detail","id":27,"gridPos":{"x":12,"y":41,"w":12,"h":8},
+     "datasource":"Prometheus",
+     "targets":[
+       {"refId":"A","expr":"irate(node_network_receive_bytes_total{job=\"edge-node\",device=\"wpan0\"}[2m])","legendFormat":"wpan0 rx"},
+       {"refId":"B","expr":"irate(node_network_transmit_bytes_total{job=\"edge-node\",device=\"wpan0\"}[2m])","legendFormat":"wpan0 tx"}
+     ],
+     "fieldConfig":{"defaults":{"unit":"binBps","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}}}
+  ]
+}
