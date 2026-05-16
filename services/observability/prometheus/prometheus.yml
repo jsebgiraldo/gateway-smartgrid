@@ -38,6 +38,7 @@ scrape_configs:
         labels:
           service: thingsboard-ce
           role: central-server
+          application: thingsboard-ce   # so JVM Micrometer dashboards (filter by 'application') pick it up
 
   # Edge ThingsBoard Edge — actuator metrics. UP only once the edge's
   # tb-edge container is reconnected to the central with METRICS_ENABLED
@@ -50,3 +51,4 @@ scrape_configs:
           service: tb-edge
           role: edge-application
           device: r1000-wm6108-a3dd
+          application: tb-edge          # so JVM Micrometer dashboards (filter by 'application') pick it up
