@@ -15,7 +15,7 @@ scrape_configs:
     static_configs:
       - targets: ['192.168.8.175:9100']
         labels:
-          device: r1000-wm6108-a3dd
+          host: r1000-wm6108-a3dd      # was 'device' — collided with lua-exporter's per-interface device label
           role: edge-gateway
           site: unal
 
@@ -24,7 +24,7 @@ scrape_configs:
     static_configs:
       - targets: ['192.168.8.1:9100']
         labels:
-          device: GL-MT6000
+          host: GL-MT6000
           role: router
           site: unal
 
@@ -50,5 +50,5 @@ scrape_configs:
         labels:
           service: tb-edge
           role: edge-application
-          device: r1000-wm6108-a3dd
+          host: r1000-wm6108-a3dd
           application: tb-edge          # so JVM Micrometer dashboards (filter by 'application') pick it up
