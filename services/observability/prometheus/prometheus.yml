@@ -71,3 +71,16 @@ scrape_configs:
           role: edge-application-prod
           host: pi4-ekh01
           application: pi4-tb-edge
+
+  # OpenThread / IEEE 802.15.4 mesh — custom exporter that shells out to
+  # `ot-ctl` on the WSL OTBR (services/observability/thread-exporter/).
+  # Runs as a systemd service in WSL on :9101; reach it via the Docker Desktop
+  # host gateway (WSL is in mirrored networking, so the port is on the host).
+  - job_name: thread-mesh
+    static_configs:
+      - targets: ['host.docker.internal:9101']
+        labels:
+          service: otbr
+          role: thread-border-router
+          site: unal-lab
+          network: GatewaySmartGrid

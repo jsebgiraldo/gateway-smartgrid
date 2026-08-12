@@ -1,0 +1,1892 @@
+<mxfile host="Electron" agent="claude-code" pages="2">
+  <diagram name="CM5 Block Diagram" id="cm5-block-diagram">
+    <mxGraphModel dx="4349" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=16;fontFamily=Helvetica;" value="&lt;b&gt;CM5 Industrial Edge Gateway — Carrier Board Block Diagram&lt;/b&gt;&lt;br&gt;CM5 Pin Mapping &amp; Peripheral Connections&lt;br&gt;&lt;i&gt;Source: CM5_Project_20260508 schematic + design discussion 2026-05&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="900" x="950" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;fontSize=14;verticalAlign=top;spacingTop=5;" value="&lt;b&gt;RASPBERRY PI CM5&lt;/b&gt;&lt;br&gt;CM5104032 / CM5108032&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;55 × 40 mm · 2× Hirose DF40 (200 pins)&lt;br&gt;Backward-compatible footprint con CM4&lt;/font&gt;" vertex="1">
+          <mxGeometry height="820" width="500" x="900" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;BCM2712 SoC&lt;/b&gt;&lt;br&gt;4× Cortex-A76 @ 2.4 GHz&lt;br&gt;VideoCore VII · OpenGL ES 3.1" vertex="1">
+          <mxGeometry height="65" width="200" x="950" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=10;" value="&lt;b&gt;4/8GB LPDDR4X&lt;/b&gt;&lt;br&gt;4267 MT/s" vertex="1">
+          <mxGeometry height="65" width="110" x="1160" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=10;" value="&lt;b&gt;32-64GB&lt;/b&gt;&lt;br&gt;eMMC 5.1" vertex="1">
+          <mxGeometry height="65" width="90" x="1280" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=10;" value="&lt;b&gt;RP1 I/O Chip&lt;/b&gt;&lt;br&gt;PCIe 2.0 endpoint&lt;br&gt;UART / SPI / I2C / GPIO / USB2&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;(transparente al usuario)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="950" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=10;" value="&lt;b&gt;GbE PHY&lt;/b&gt;&lt;br&gt;Integrated&lt;br&gt;IEEE 1588 PTP" vertex="1">
+          <mxGeometry height="80" width="110" x="1140" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=10;" value="&lt;b&gt;DA9091 PMIC&lt;/b&gt;&lt;br&gt;Dialog/Renesas&lt;br&gt;Multi-rail" vertex="1">
+          <mxGeometry height="80" width="110" x="1260" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3d1ff;strokeColor=#6c8ebf;fontSize=10;" value="&lt;b&gt;CYW43455 (W variant)&lt;/b&gt;&lt;br&gt;WiFi 802.11ac · BT 5.0/BLE&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;(SDIO interno, opcional según SKU)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="270" x="950" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#6c8ebf;" value="&lt;b&gt;CONNECTOR 1&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Pins 1–100 · LAN / GPIO / SD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="900" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;GbE RGMII&lt;/b&gt; ETH1&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Ethernet_Pair0..3 + LED1/2_nACT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;UART0&lt;/b&gt; GPIO 14,15&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;debug console&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;UART2&lt;/b&gt; GPIO 0,1&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;-&gt; BMC console / MikroBUS1&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;UART3&lt;/b&gt; GPIO 4,5&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;-&gt; RS485 / MikroBUS2&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;SPI0&lt;/b&gt; GPIO 7-11&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;CE0=MikroBUS1 · CE1=MikroBUS2&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="645" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;SPI1&lt;/b&gt; GPIO 16-21&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;-&gt; TPM SLB9672 (CE0)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;I2C1&lt;/b&gt; GPIO 2,3&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;system bus -&gt; SE050 + BMC + EEPROM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="725" as="geometry" />
+        </mxCell>
+        <mxCell id="28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;ID_SC / ID_SD&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;HAT EEPROM auto DT overlay&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;GPIO ctrl&lt;/b&gt; misc&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;22-27: tamper/buzzer/buttons/PG&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="900" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="201" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;Power &amp; Mgmt&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;+5V x6 · 3V3 · 1V8 · VBAT&lt;br&gt;GLOBAL_EN · RUN_PG · nRPIBOOT&lt;br&gt;PMIC_Enable · EXT_nRESET&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="900" y="845" as="geometry" />
+        </mxCell>
+        <mxCell id="30" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#6c8ebf;" value="&lt;b&gt;CONNECTOR 2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Pins 101–200 · PCIe / USB / Display&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="1260" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;USB 2.0 host&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;-&gt; IC HUB + USB-C&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="311" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;USB 3.0&lt;/b&gt; (NEW)&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;USB-C SS lanes via mux&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;PCIe Gen3 x1&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;-&gt; switch a NVMe/mPCIe/...&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;HDMI0&lt;/b&gt; 2.0&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;4Kp60 + HOTPLUG + DDC&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;HDMI1&lt;/b&gt; 2.0&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;diagnóstico secundario&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="645" as="geometry" />
+        </mxCell>
+        <mxCell id="35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" value="&lt;b&gt;CAM/DSI 0&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;MIPI 2-lane libre&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" value="&lt;b&gt;CAM/DSI 1&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;MIPI 2-lane libre&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="725" as="geometry" />
+        </mxCell>
+        <mxCell id="37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;SDIO/SD&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;eMMC override / SD recovery&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;fontSize=9;align=center;" value="&lt;b&gt;Audio + Fan&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;PWM/Tach + I2S + composite&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="120" x="1280" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;RJ45 ETH1 + PoE PD&lt;/b&gt;&lt;br&gt;GbE Backhaul + 802.3at&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ RGMII desde CM5&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="170" x="700" y="475" as="geometry" />
+        </mxCell>
+        <mxCell id="401" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;RJ45 ETH2&lt;/b&gt;&lt;br&gt;via IC HUB (USB-Eth)&lt;br&gt;LAN/SCADA isolation&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ USB 2.0 + RGMII PHY&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="170" x="700" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="50" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#d6b656;" value="&lt;b&gt;POWER SECTION&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="180" y="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;PoE 802.3at&lt;/b&gt;&lt;br&gt;25 W class 4&lt;br&gt;via ETH1 magnetics + bridge" vertex="1">
+          <mxGeometry height="55" width="150" x="-160" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;DC 9-36V&lt;/b&gt;&lt;br&gt;Terminal block + barrel&lt;br&gt;Reverse polarity prot." vertex="1">
+          <mxGeometry height="55" width="150" x="-160" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="53" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;USB-C PD sink&lt;/b&gt;&lt;br&gt;CYPD3175 PD controller&lt;br&gt;15-100W negociado" vertex="1">
+          <mxGeometry height="55" width="150" x="-160" y="242.5" as="geometry" />
+        </mxCell>
+        <mxCell id="54" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;VIN to 5.325V buck&lt;/b&gt;&lt;br&gt;DCDC primario&lt;br&gt;TPS54xxx family" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="77.5" as="geometry" />
+        </mxCell>
+        <mxCell id="55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;5.325 to 3.738V buck&lt;/b&gt;&lt;br&gt;DCDC secundario&lt;br&gt;AMZ_MIKROE rail" vertex="1">
+          <mxGeometry height="60" width="160" x="100" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="56" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;Supercap UPS&lt;/b&gt;&lt;br&gt;LTC3350 balanceador&lt;br&gt;1-4 caps en serie&lt;br&gt;PWR_FAIL -&gt; BMC" vertex="1">
+          <mxGeometry height="75" width="160" x="100" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="57" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" value="&lt;b&gt;3V3 LDO x5&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;BOARD / MK1 / MK2 / P1 / P2&lt;br&gt;c/u con EN propio&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="160" x="280" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" value="&lt;b&gt;5V LDO + EN&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;USB VBUS · MikroBUS 5V&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="160" x="280" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=left;spacingLeft=4;" value="&lt;b&gt;INA228 x3 (I2C)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;VIN · 5V · 3V3_BOARD&lt;br&gt;20-bit V/I/P monitor&lt;br&gt;Owner: BMC&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="160" x="280" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="60" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#CC0000;" value="&lt;b&gt;PROTECTION &amp; ESD&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="180" x="-195" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6e6;strokeColor=#CC0000;strokeWidth=2;fontSize=8;align=left;spacingLeft=3;" value="&lt;b&gt;TVS por interfaz&lt;/b&gt;&lt;br&gt;SMBJ30CA -&gt; DC barrel&lt;br&gt;SMBJ58A -&gt; PoE&lt;br&gt;SMBJ15CA x2 -&gt; RS485 A/B&lt;br&gt;TPD4EUSB30 -&gt; USB-A/USB-C&lt;br&gt;TPD8S300 -&gt; USB-C SS&lt;br&gt;PESD2ETH -&gt; RJ45 data&lt;br&gt;PESD0402-140 x4 -&gt; SMA RF&lt;br&gt;USBLC6-2SC6 -&gt; nanoSIM&lt;br&gt;TPD2E007 -&gt; DIN 24V" vertex="1">
+          <mxGeometry height="155" width="220" x="-195" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6e6;strokeColor=#CC0000;strokeWidth=1;fontSize=8;align=left;spacingLeft=3;" value="&lt;b&gt;Polaridad inversa&lt;/b&gt;&lt;br&gt;SiR882ADP P-MOSFET&lt;br&gt;Vds=-30V · Rds(on)=13mΩ&lt;br&gt;DC + PoE outputs&lt;br&gt;&lt;b&gt;PTC fuses&lt;/b&gt; en cada VBUS" vertex="1">
+          <mxGeometry height="80" width="220" x="-195" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="70" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="&lt;b&gt;SMA ANTENNAS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="160" x="160" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="71" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6ffe6;strokeColor=#82b366;fontSize=9;" value="&lt;b&gt;SMA1&lt;/b&gt;&lt;br&gt;LTE main&lt;br&gt;700-2700" vertex="1">
+          <mxGeometry height="50" width="70" x="160" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="72" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6ffe6;strokeColor=#82b366;fontSize=9;" value="&lt;b&gt;SMA2&lt;/b&gt;&lt;br&gt;LTE div&lt;br&gt;+ GNSS" vertex="1">
+          <mxGeometry height="50" width="70" x="240" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="73" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6ffe6;strokeColor=#82b366;fontSize=9;" value="&lt;b&gt;SMA3&lt;/b&gt;&lt;br&gt;Wi-SUN&lt;br&gt;915 MHz" vertex="1">
+          <mxGeometry height="50" width="70" x="160" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="74" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6ffe6;strokeColor=#82b366;fontSize=9;" value="&lt;b&gt;SMA4&lt;/b&gt;&lt;br&gt;LoRa /&lt;br&gt;HaLow" vertex="1">
+          <mxGeometry height="50" width="70" x="240" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="80" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#82b366;" value="&lt;b&gt;INDUSTRIAL I/O&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="180" x="490" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="81" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;ADM2587E RS485 #1&lt;/b&gt;&lt;br&gt;Isolated 5kVrms · DC/DC integrado&lt;br&gt;A/B/GND Terminal Block&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ UART3 GPIO4,5 · DE=GPIO22&lt;/font&gt;" vertex="1">
+          <mxGeometry height="75" width="220" x="450" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="82" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=3 3;fontSize=10;" value="&lt;b&gt;RS485 #2-3 (DNP)&lt;/b&gt;&lt;br&gt;ADM2587E x2 opcionales&lt;br&gt;UART de MikroBUS si se requiere&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#FF8C00&quot;&gt;🔸 DNP en rev. base&lt;/font&gt;" vertex="1">
+          <mxGeometry height="75" width="220" x="450" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;MAX3232 RS232&lt;/b&gt;&lt;br&gt;Legacy console + paneles&lt;br&gt;DB9 o terminal block&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ UART4 GPIO8,9&lt;/font&gt;" vertex="1">
+          <mxGeometry height="75" width="220" x="450" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;ISO1212 DIN 24V&lt;/b&gt;&lt;br&gt;IEC 61131-2 type-1&lt;br&gt;4 canales aislados&lt;br&gt;-&gt; BMC GPIO (pulse counter)&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ AMI pulse fallback&lt;/font&gt;" vertex="1">
+          <mxGeometry height="85" width="220" x="450" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="85" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;TPSI3052 DOUT&lt;/b&gt;&lt;br&gt;Isolated switch x2&lt;br&gt;Para relé / contactor / LED externo&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ BMC-owned&lt;/font&gt;" vertex="1">
+          <mxGeometry height="75" width="220" x="450" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;Terminal Blocks (rear)&lt;/b&gt;&lt;br&gt;Phoenix MSTB 2.5mm&lt;br&gt;DC IN · RS485 · DIN · DOUT · Fan&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Field-wireable&lt;/font&gt;" vertex="1">
+          <mxGeometry height="75" width="220" x="450" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="90" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#9673a6;" value="&lt;b&gt;EXPANSION SLOTS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="180" x="1500" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="91" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;" value="&lt;b&gt;Mini PCIe 1 (full) + SIM&lt;/b&gt;&lt;br&gt;LTE / NTN / 5G cat-M&lt;br&gt;Quectel EG25 / EC25 / BG95&lt;br&gt;Sony ALT1350 NTN R17&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ USB2 + PCIe + SIM holder&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="220" x="1450" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="92" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;" value="&lt;b&gt;Mini PCIe 2 (full)&lt;/b&gt;&lt;br&gt;LoRa SX1303 (concentrador 8-ch)&lt;br&gt;/ Wi-Fi 6 / 802.11ah HaLow MM6108&lt;br&gt;/ Newracom NRC7292&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ USB2 + PCIe + SMB&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="220" x="1450" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="93" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;MikroBUS 1&lt;/b&gt;&lt;br&gt;Wi-SUN FG25 click&lt;br&gt;/ Thread MGM240P&lt;br&gt;/ GNSS / BLE&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ SPI0 CE0 + UART2 + I2C&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="220" x="1450" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="94" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="&lt;b&gt;MikroBUS 2&lt;/b&gt;&lt;br&gt;LoRa SX1262 node click&lt;br&gt;/ Sub-1GHz / Sensores I2C&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ SPI0 CE1 + UART3 + I2C&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="220" x="1450" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="95" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;" value="&lt;b&gt;NVMe M.2 2280 Key-M&lt;/b&gt;&lt;br&gt;PCIe Gen3 x1 (8 Gbps)&lt;br&gt;256GB - 1TB edge storage&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ PCIe Gen3 (vs Gen2 CM4)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="220" x="1700" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="96" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;" value="&lt;b&gt;IC HUB&lt;/b&gt;&lt;br&gt;USB hub + ETH2 PHY&lt;br&gt;Microchip LAN78xx&lt;br&gt;-&gt; USB-A x2 + RJ45 ETH2&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ USB2 host&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="220" x="1700" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="97" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;" value="&lt;b&gt;USB-C dual mode&lt;/b&gt;&lt;br&gt;USB3160 SS mux x2&lt;br&gt;nRPIBOOT=0 -&gt; RPiBoot DL&lt;br&gt;nRPIBOOT=1 -&gt; HUB / device&lt;br&gt;CYPD3175 PD controller (sink)&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#228B22&quot;&gt;✅ USB3 SS + USB2 + PD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="1700" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="98" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="&lt;b&gt;HDMI0 (full-size)&lt;/b&gt;&lt;br&gt;Diagnóstico / HMI&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#FF8C00&quot;&gt;🔸 4Kp60&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="180" x="1500" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="99" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;strokeDasharray=3 3;fontSize=9;align=left;spacingLeft=5;" value="&lt;b&gt;🆓 HDMI1 — LIBRE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Footprint micro-HDMI DNP&lt;br&gt;Solo variante con dual display&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="180" x="1500" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="180" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;strokeDasharray=3 3;fontSize=9;align=left;spacingLeft=5;" value="&lt;b&gt;🆓 DSI 22-pin FFC — LIBRE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Touch panel oficial Pi 7&quot;&lt;br&gt;HMI local en gabinete&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="180" x="1500" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="181" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;strokeDasharray=3 3;fontSize=9;align=left;spacingLeft=5;" value="&lt;b&gt;🆓 CSI x2 — LIBRE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Cámara HQ / V3 / térmica&lt;br&gt;Lectura visual medidores&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="180" x="1500" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="100" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#FF8C00;" value="&lt;b&gt;BMC SUBSYSTEM (Aux MCU)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="280" x="950" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="101" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=3;fontSize=11;verticalAlign=top;spacingTop=5;" value="&lt;b&gt;STM32G0B1CET6&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Cortex-M0+ @ 64MHz · LQFP48 · industrial-grade&lt;br&gt;Power sequencer + WD + supercap mgr + AMI pulse counter + tamper&lt;br&gt;Heartbeat con CM5 via I2C1 + IRQ GPIO&lt;br&gt;Owner de FRAM/RTC/INA/TMP/LIS/GPIO_EXP/LED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="115" width="380" x="900" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="102" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;FRAM MB85RC256V&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;256kbit SPI · counters AMI&lt;br&gt;sin desgaste eMMC&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="170" x="1330" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="103" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;SD card (recovery)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;BMC-owned SPI&lt;br&gt;Imagen failsafe del CM5&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="170" x="1330" y="1095" as="geometry" />
+        </mxCell>
+        <mxCell id="110" parent="1" style="rounded=0;fillColor=#82b366;strokeColor=#82b366;fontColor=#FFFFFF;fontSize=10;html=1;align=center;" value="&lt;b&gt;I²C System Bus&lt;/b&gt; (CM5 I2C1 · 3V3 · 4.7kΩ pull-ups · SE050 + BMC + future I²C peers)" vertex="1">
+          <mxGeometry height="8" width="550" x="400" y="1295" as="geometry" />
+        </mxCell>
+        <mxCell id="111" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" value="&lt;b&gt;TPM SLB9672&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Infineon OPTIGA&lt;br&gt;SPI1 CE0 (NO I2C)&lt;br&gt;Plataforma RoT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="400" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="112" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" value="&lt;b&gt;SE050C2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;NXP EdgeLock&lt;br&gt;0x48 · CC EAL6+&lt;br&gt;App keys / mTLS&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="530" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="113" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" value="&lt;b&gt;AT24C256&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;HAT ID EEPROM&lt;br&gt;0x50 · DT overlay&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="660" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="114" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;BMC I2C slave&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;0x40 · STM32G0&lt;br&gt;heartbeat + cmd&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="790" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="120" parent="1" style="rounded=0;fillColor=#FF8C00;strokeColor=#FF8C00;fontColor=#FFFFFF;fontSize=10;html=1;align=center;" value="&lt;b&gt;I²C BMC Bus&lt;/b&gt; (industrial · STM32G0 master · pull-ups en BMC)" vertex="1">
+          <mxGeometry height="8" width="550" x="400" y="1402" as="geometry" />
+        </mxCell>
+        <mxCell id="121" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;PCF85063A&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;RTC + CR2032&lt;br&gt;0x51 · alarm/wake&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="400" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="122" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;INA228 x3&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;V/I/P monitor&lt;br&gt;0x40/41/44&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="530" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="123" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;TMP117 x2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;±0.1°C&lt;br&gt;0x48/49 (alt)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="660" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="124" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;LIS2DH12&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;tamper/tilt&lt;br&gt;0x18 · wake-on-motion&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="790" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="125" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;PCA9535 x2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;GPIO Expanders&lt;br&gt;0x20/21&lt;br&gt;RST/EN/IRQ buses&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="400" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="126" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;PCA9956B&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;LED RGB driver&lt;br&gt;0x05 · panel frontal&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="530" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="127" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;Qwiic/STEMMA&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;JST-SH 4-pin&lt;br&gt;Expansion I2C externa&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="660" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="128" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;fontSize=9;" value="&lt;b&gt;LTC3350 supercap&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;PWR_FAIL via I2C&lt;br&gt;0x09 · balance state&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="120" x="790" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="130" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="&lt;b&gt;GPIO Control Signals (BMC + CM5)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="280" x="1590" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="131" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=9;align=left;spacingLeft=5;" value="&lt;b&gt;Resets / Enables (via PCA9535 + BMC)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;mPCIe1_RST, mPCIe2_RST, MK1_RST, MK2_RST&lt;br&gt;mPCIe1_DIS, mPCIe2_DIS, MK1_INT, MK2_INT&lt;br&gt;HUB_EN, nRPIBOOT, USB-C role&lt;/font&gt;" vertex="1">
+          <mxGeometry height="75" width="320" x="1570" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="132" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=9;align=left;spacingLeft=5;" value="&lt;b&gt;CM5 control (panel + status)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;GPIO22 -&gt; RS485 DE/RE&lt;br&gt;GPIO23 -&gt; BMC IRQ in&lt;br&gt;GPIO24 -&gt; nRPIBOOT (sw-controlled)&lt;br&gt;GPIO25 -&gt; Buzzer&lt;br&gt;GPIO26 -&gt; USER button&lt;br&gt;GPIO27 -&gt; CM5 heartbeat -&gt; BMC&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="320" x="1570" y="1095" as="geometry" />
+        </mxCell>
+        <mxCell id="133" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=9;align=left;spacingLeft=5;" value="&lt;b&gt;BMC dedicated I/O&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;BMC -&gt; CM5 PMIC_Enable / RUN_PG / EXT_nRESET&lt;br&gt;BMC -&gt; Fan PWM + Tach (cuando CM5 down)&lt;br&gt;BMC -&gt; DIN x4 inputs (pulse counters)&lt;br&gt;BMC -&gt; DOUT x2 (relays)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="320" x="1570" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="140" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#0066CC;" value="&lt;b&gt;DEBUG / EXTERNAL CONNECTORS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="240" x="40" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="141" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=9;" value="&lt;b&gt;nanoSIM 1+2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Push-push x2&lt;br&gt;mPCIe1 LTE + dual SIM&lt;br&gt;USBLC6 ESD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="20" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="142" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=9;" value="&lt;b&gt;DC barrel + TB&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;5.5x2.1mm jack&lt;br&gt;+ MSTB 5.08mm 2-pin&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="130" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="143" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#003366;fontSize=9;fontColor=#FFFFFF;" value="&lt;b&gt;SWD Debug&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;2x5 1.27mm&lt;br&gt;BMC + mikroBUS MCUs&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="240" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="144" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#003366;fontSize=9;fontColor=#FFFFFF;" value="&lt;b&gt;UART console&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;PicoBlade 6-pin&lt;br&gt;CM5 + BMC TX/RX&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="20" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="145" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=9;" value="&lt;b&gt;Boot mode hdr&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;2x3 jumper&lt;br&gt;eMMC / SD / RPiBoot&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="130" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="146" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=9;" value="&lt;b&gt;Fan JST PH&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;3-pin 5V/PWM/Tach&lt;br&gt;Sunon MF40100V1&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="240" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="150" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#0066CC;strokeWidth=2;fontSize=10;" value="&lt;b&gt;GNSS PPS / IEEE 1588&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Modem LTE TIMEPULSE -&gt; 74LVC1G17 -&gt; CM5 GPIO18 (/dev/pps0)&lt;br&gt;CM5 GbE soporta PTP HW timestamp · IEC 61850 sub-µs&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="380" x="950" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="160" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6ffe6;strokeColor=#228B22;strokeWidth=1;fontSize=9;align=left;spacingLeft=4;" value="&lt;b&gt;GLOBAL_EN Arbitration&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;Open-drain OR (100kΩ pull-up)&lt;br&gt;• BMC STM32G0 (master)&lt;br&gt;• RTC PCF85063 ~INT (74LVC1G07)&lt;br&gt;• USB-C PD (sink-ready)&lt;br&gt;• Power button (rear)&lt;br&gt;-&gt; CM5 GLOBAL_EN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="105" width="200" x="-195" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="170" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="&lt;b&gt;LEYENDA&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="80" x="50" y="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="171" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="50" y="1525" as="geometry" />
+        </mxCell>
+        <mxCell id="172" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;" value="✅ Asignado / En uso" vertex="1">
+          <mxGeometry height="20" width="180" x="75" y="1523" as="geometry" />
+        </mxCell>
+        <mxCell id="173" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="50" y="1548" as="geometry" />
+        </mxCell>
+        <mxCell id="174" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;" value="🔸 Opcional / Power" vertex="1">
+          <mxGeometry height="20" width="180" x="75" y="1546" as="geometry" />
+        </mxCell>
+        <mxCell id="175" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeDasharray=3 3;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="50" y="1571" as="geometry" />
+        </mxCell>
+        <mxCell id="176" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;" value="🆓 Libre / Disponible" vertex="1">
+          <mxGeometry height="20" width="180" x="75" y="1569" as="geometry" />
+        </mxCell>
+        <mxCell id="177" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="50" y="1594" as="geometry" />
+        </mxCell>
+        <mxCell id="178" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;" value="High-speed (PCIe / USB)" vertex="1">
+          <mxGeometry height="20" width="180" x="75" y="1592" as="geometry" />
+        </mxCell>
+        <mxCell id="179" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="50" y="1617" as="geometry" />
+        </mxCell>
+        <mxCell id="190" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;" value="🧠 BMC subsystem (NEW)" vertex="1">
+          <mxGeometry height="20" width="180" x="75" y="1615" as="geometry" />
+        </mxCell>
+        <mxCell id="191" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6e6;strokeColor=#CC0000;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="50" y="1640" as="geometry" />
+        </mxCell>
+        <mxCell id="192" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;" value="🛡️ Protection / ESD / TVS" vertex="1">
+          <mxGeometry height="20" width="180" x="75" y="1638" as="geometry" />
+        </mxCell>
+        <mxCell id="193" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#0066CC;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="50" y="1663" as="geometry" />
+        </mxCell>
+        <mxCell id="194" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;" value="⏱️ Time sync (PPS/PTP)" vertex="1">
+          <mxGeometry height="20" width="180" x="75" y="1661" as="geometry" />
+        </mxCell>
+        <mxCell id="200" edge="1" parent="1" source="21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2001" connectable="0" parent="200" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" value="RGMII" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="202" edge="1" parent="1" source="31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="96">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1408" y="502" />
+              <mxPoint x="1408" y="86" />
+              <mxPoint x="1683" y="86" />
+              <mxPoint x="1683" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2021" connectable="0" parent="202" style="edgeLabel;html=1;fontSize=8;fontColor=#9673a6;" value="USB2 480Mbps" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="203" edge="1" parent="1" source="311" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" target="97">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1426" y="542" />
+              <mxPoint x="1426" y="92" />
+              <mxPoint x="1690" y="92" />
+              <mxPoint x="1690" y="363" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2031" connectable="0" parent="203" style="edgeLabel;html=1;fontSize=8;fontColor=#9673a6;" value="USB3 SS" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="204" edge="1" parent="1" source="32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" target="95">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1446" y="575" />
+              <mxPoint x="1446" y="98" />
+              <mxPoint x="1697" y="98" />
+              <mxPoint x="1697" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2041" connectable="0" parent="204" style="edgeLabel;html=1;fontSize=8;fontColor=#9673a6;" value="PCIe Gen3 8 Gbps" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="205" edge="1" parent="1" source="32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;exitX=1;exitY=0.55;entryX=0;entryY=0.5;" target="91">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1432" y="584" />
+              <mxPoint x="1432" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2051" connectable="0" parent="205" style="edgeLabel;html=1;fontSize=8;fontColor=#9673a6;" value="PCIe" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="206" edge="1" parent="1" source="32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;exitX=1;exitY=0.85;entryX=0;entryY=0.5;" target="92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1437" y="595" />
+              <mxPoint x="1437" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="207" edge="1" parent="1" source="33" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="98">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="208" edge="1" parent="1" source="34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#b85450;strokeDasharray=3 3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="209" edge="1" parent="1" source="21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.7;entryX=1;entryY=0.3;" target="401">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="210" edge="1" parent="1" source="24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="81">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="623" />
+              <mxPoint x="690" y="167" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2101" connectable="0" parent="210" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" value="Modbus RTU" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="211" edge="1" parent="1" source="22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#0066CC;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="144">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="542" />
+              <mxPoint x="890" y="680" />
+              <mxPoint x="350" y="680" />
+              <mxPoint x="350" y="795" />
+              <mxPoint x="-20" y="795" />
+              <mxPoint x="-20" y="942" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="212" edge="1" parent="1" source="23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="93">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="885" y="583" />
+              <mxPoint x="885" y="104" />
+              <mxPoint x="1412" y="104" />
+              <mxPoint x="1412" y="405" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="213" edge="1" parent="1" source="25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.5;entryX=0;entryY=0.7;" target="93">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="878" y="663" />
+              <mxPoint x="878" y="110" />
+              <mxPoint x="1418" y="110" />
+              <mxPoint x="1418" y="423" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2131" connectable="0" parent="213" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" value="SPI0+UART2" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="214" edge="1" parent="1" source="25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.7;entryX=0;entryY=0.5;" target="94">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="872" y="675" />
+              <mxPoint x="872" y="116" />
+              <mxPoint x="1422" y="116" />
+              <mxPoint x="1422" y="505" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="215" edge="1" parent="1" source="26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" target="111">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="810" y="703" />
+              <mxPoint x="810" y="1160" />
+              <mxPoint x="460" y="1160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2151" connectable="0" parent="215" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" value="SPI1 CE0" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="216" edge="1" parent="1" source="27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="110">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="743" />
+              <mxPoint x="380" y="1299" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2161" connectable="0" parent="216" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" value="I2C1" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="240" edge="1" parent="1" source="110" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0.345;exitY=0;entryX=0.5;entryY=1;" target="112">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2401" connectable="0" parent="240" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" value="0x48" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="217" edge="1" parent="1" source="110" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0.82;exitY=0;entryX=0.5;entryY=1;" target="114">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2171" connectable="0" parent="217" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" value="0x40" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="218" edge="1" parent="1" source="28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" target="113">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="825" y="783" />
+              <mxPoint x="825" y="1175" />
+              <mxPoint x="720" y="1175" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="220" edge="1" parent="1" source="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="221" edge="1" parent="1" source="52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="222" edge="1" parent="1" source="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="54">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="45" y="270" />
+              <mxPoint x="45" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="223" edge="1" parent="1" source="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="224" edge="1" parent="1" source="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=1;entryX=0.5;entryY=0;" target="56">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="160" />
+              <mxPoint x="270" y="235" />
+              <mxPoint x="180" y="235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="225" edge="1" parent="1" source="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="226" edge="1" parent="1" source="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" target="58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="227" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;entryX=0;entryY=0.2;" target="101">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="400" />
+              <mxPoint x="410" y="400" />
+              <mxPoint x="410" y="1043" />
+            </Array>
+            <mxPoint x="180" y="350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2271" connectable="0" parent="227" style="edgeLabel;html=1;fontSize=8;fontColor=#FF8C00;" value="PWR_FAIL" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="228" edge="1" parent="1" source="101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#FF8C00;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" target="102">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2281" connectable="0" parent="228" style="edgeLabel;html=1;fontSize=8;fontColor=#FF8C00;" value="SPI" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="229" edge="1" parent="1" source="101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#FF8C00;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" target="103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="230" edge="1" parent="1" source="101" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.1;exitY=1;entryX=0.978;entryY=0;" target="120">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2301" connectable="0" parent="230" style="edgeLabel;html=1;fontSize=8;fontColor=#FF8C00;" value="I²C BMC bus" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="231" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.11;exitY=0;entryX=0.5;entryY=1;" target="121">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="232" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.345;exitY=0;entryX=0.5;entryY=1;" target="122">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="233" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.582;exitY=0;entryX=0.5;entryY=1;" target="123">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="234" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.818;exitY=0;entryX=0.5;entryY=1;" target="124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="235" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.11;exitY=1;entryX=0.5;entryY=0;" target="125">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="236" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.345;exitY=1;entryX=0.5;entryY=0;" target="126">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="237" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.582;exitY=1;entryX=0.5;entryY=0;" target="127">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="238" edge="1" parent="1" source="120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#FF8C00;exitX=0.818;exitY=1;entryX=0.5;entryY=0;" target="128">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="CM5 Pinout" id="cm5-pinout">
+    <mxGraphModel dx="2226" dy="1143" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1980" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontFamily=Helvetica;" value="&lt;b&gt;CM5 Pinout — Grilla visual de pines&lt;/b&gt;&lt;br&gt;200 pines (2× Hirose DF40 · 0.4 mm pitch) · Color = clase de señal · Borde sólido = ASIGNADO en CM5_Project · Borde punteado = LIBRE / disponible" vertex="1">
+          <mxGeometry height="60" width="1500" x="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;fontSize=13;verticalAlign=top;spacingTop=10;" value="&lt;b&gt;J1 — Connector 1 (South) · Pins 1–100&lt;/b&gt;" vertex="1">
+          <mxGeometry height="940" width="540" x="60" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j1_L" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Signal&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="130" x="110" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j1_PL" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Pin&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="22" x="240" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j1_PR" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Pin&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="22" x="262" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j1_R" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Signal&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="130" x="284" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="1" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="2" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_P3" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="3" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="4" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+3V3" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_N3" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="5" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="6" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+3V3" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="p7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_N2" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="n7" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="7" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="8" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="p8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="p9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_P2" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="n9" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="9" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="n10" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="10" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="p10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="EEPROM_nWP" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="p11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="n11" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="11" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="n12" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="12" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="p12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_SYNC_OUT" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="p13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_P1" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="n13" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="13" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="n14" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="14" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="p14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="p15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_N1" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="n15" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="15" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="n16" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="16" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="p16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_SYNC_IN" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="p17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="n17" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="17" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="n18" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="18" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="p18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_n_LED1" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="p19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_N0" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="n19" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="19" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="n20" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="20" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="p20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_n_LED2" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="p21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="ETH_TX_P0" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="n21" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="21" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="n22" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="22" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="p22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="p23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="n23" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="23" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="n24" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="24" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="p24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D0_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="p25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO0 UART2_TX" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="n25" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="25" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="n26" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="26" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="p26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D0_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="p27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO1 UART2_RX" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="n27" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="27" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="n28" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="28" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="p28" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="p29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO2 SDA1" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="n29" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="29" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="n30" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="30" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="p30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D1_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="p31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="n31" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="31" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="n32" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="32" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="p32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D1_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="p33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO3 SCL1" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="n33" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="33" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="n34" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="34" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="p34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="p35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO4 UART3_TX" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="n35" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="35" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="n36" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="36" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="p36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_C_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="p37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO5 UART3_RX" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="n37" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="37" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="n38" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="38" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="p38" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_C_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="p39" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="n39" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="39" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="n40" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="40" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="p40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="p41" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO6" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="n41" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="41" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="n42" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="42" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="p42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D2_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="p43" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO7 SPI0_CE1" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="n43" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="43" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="n44" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="44" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="p44" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D2_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="p45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO8 SPI0_CE0" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="n45" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="45" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="n46" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="46" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="p46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="p47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO9 SPI0_MISO" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="n47" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="47" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="n48" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="48" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="p48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D3_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="p49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="n49" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="49" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="n50" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="50" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="p50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM1_D3_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="p51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO10 SPI0_MOSI" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="n51" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="51" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="n52" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="52" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="p52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="p53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO11 SPI0_SCLK" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="n53" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="53" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="n54" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="54" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="p54" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D0_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="p55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO12" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="n55" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="55" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="n56" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="56" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="p56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D0_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="p57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO13" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="n57" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="57" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="n58" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="58" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="p58" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="p59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="n59" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="59" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="n60" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="60" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="p60" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D1_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="p61" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO14 UART0_TX" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="n61" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="61" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="n62" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="62" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="p62" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D1_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="p63" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO15 UART0_RX" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="n63" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="63" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="n64" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="64" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="p64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="p65" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO16 SPI1_CE2" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="n65" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="65" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="n66" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="66" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="p66" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_C_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="p67" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO17 SPI1_CE1" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="n67" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="67" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="n68" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="68" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="p68" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_C_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="p69" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="n69" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="69" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="n70" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="70" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="p70" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="p71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO18 SPI1_CE0" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="n71" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="71" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="n72" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="72" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="p72" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D2_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="p73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO19 SPI1_MISO" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="n73" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="73" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="n74" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="74" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="p74" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D2_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="p75" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO20 SPI1_MOSI" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="n75" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="75" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="n76" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="76" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="p76" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="p77" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO21 SPI1_SCLK" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="n77" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="77" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="n78" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="78" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="p78" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D3_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="p79" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="n79" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="79" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="n80" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="80" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="p80" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI1_D3_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="p81" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO22 RS485_DE" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="n81" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="81" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="n82" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="82" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="p82" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="p83" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO23 BMC_IRQ" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="n83" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="83" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="n84" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="84" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="p84" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI0_D0_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="p85" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO24 nRPIBOOT" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="n85" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="85" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="n86" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="86" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="p86" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI0_D0_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="p87" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="n87" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="87" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="n88" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="88" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="p88" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="p89" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO25 Buzzer" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="n89" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="89" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="n90" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="90" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="p90" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI0_D1_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="p91" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO26 USR_BTN" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="n91" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="91" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="n92" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="92" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="p92" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI0_D1_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="p93" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GPIO27 Heartbeat" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="n93" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="93" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="n94" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="94" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="p94" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="p95" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="n95" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="95" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="n96" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="96" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="p96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI0_C_N" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="p97" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SDX_VDD_OVR" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="n97" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="97" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="n98" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="98" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="p98" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="DSI0_C_P" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="p99" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SDIO_VDDIO_TRK" vertex="1">
+          <mxGeometry height="16" width="130" x="110" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="n99" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="99" vertex="1">
+          <mxGeometry height="16" width="22" x="240" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="n100" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="100" vertex="1">
+          <mxGeometry height="16" width="22" x="262" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="p100" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="284" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;fontSize=13;verticalAlign=top;spacingTop=10;" value="&lt;b&gt;J2 — Connector 2 (North) · Pins 101–200&lt;/b&gt;" vertex="1">
+          <mxGeometry height="940" width="540" x="1260" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j2_L" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Signal&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="130" x="1310" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j2_PL" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Pin&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="22" x="1440" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j2_PR" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Pin&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="22" x="1462" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_j2_R" parent="1" style="text;html=1;align=center;fontSize=9;" value="&lt;b&gt;Signal&lt;/b&gt;" vertex="1">
+          <mxGeometry height="18" width="130" x="1484" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="p101" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="USB2_OTG_ID" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="n101" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="101" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="n102" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="102" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p102" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_CLK_REQ_n" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p103" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="USB2_DP" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="n103" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="103" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="n104" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="104" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="p104" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="p105" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="USB2_DN" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="n105" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="105" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="n106" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="106" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="p106" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_PWR_EN" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="p107" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="n107" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="107" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="n108" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="108" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="p108" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="nBOOT_SELECT" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="p109" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_REF_CLK_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="n109" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="109" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="n110" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="110" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="p110" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="nRPI_BOOT" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="p111" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_REF_CLK_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="n111" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="111" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="n112" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="112" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="p112" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="nUSB_BOOT" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="p113" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="n113" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="113" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="n114" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="114" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="p114" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="p115" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_RX_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="n115" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="115" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="n116" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="116" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="p116" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="RUN_PG" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="p117" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_RX_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="n117" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="117" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="n118" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="118" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="p118" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GLOBAL_EN" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="p119" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="n119" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="119" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="n120" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="120" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="p120" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="nEXTRST" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="p121" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_TX_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="n121" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="121" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="n122" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="122" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="p122" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SDA0 HAT_EEPROM" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="p123" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="PCIE_TX_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="n123" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="123" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="n124" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="124" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="p124" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SCL0 HAT_EEPROM" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="p125" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="n125" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="125" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="n126" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="126" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="p126" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SD_PWR_ON" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="p127" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="CAM_GPIO" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="n127" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="127" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="n128" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="128" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="p128" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="VDAC_COMP" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="p129" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="nPCIE_RST" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="n129" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="129" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="n130" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="130" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="p130" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="454" as="geometry" />
+        </mxCell>
+        <mxCell id="p131" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="n131" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="131" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="n132" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="132" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="p132" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_TX2_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="p133" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="n133" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="133" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="n134" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="134" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="p134" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_TX2_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="486" as="geometry" />
+        </mxCell>
+        <mxCell id="p135" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_HOTPLUG" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="n135" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="135" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="n136" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="136" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="p136" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="p137" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_SDA" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="n137" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="137" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="n138" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="138" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="p138" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_TX1_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="p139" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_SCL" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="n139" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="139" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="n140" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="140" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="p140" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_TX1_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="p141" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_CEC" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="n141" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="141" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="n142" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="142" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="p142" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="p143" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_TX2_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="n143" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="143" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="n144" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="144" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="p144" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_TX0_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="566" as="geometry" />
+        </mxCell>
+        <mxCell id="p145" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_TX2_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="n145" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="145" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="n146" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="146" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="p146" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_TX0_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="p147" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="n147" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="147" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="n148" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="148" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="p148" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="p149" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_TX1_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="n149" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="149" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="n150" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="150" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="p150" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_CK_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="p151" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_TX1_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="n151" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="151" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="n152" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="152" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="p152" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_CK_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="p153" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="n153" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="153" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="n154" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="154" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="p154" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="p155" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_TX0_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="n155" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="155" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="n156" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="156" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="p156" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_HOTPLUG" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="p157" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_TX0_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="n157" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="157" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="n158" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="158" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="p158" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_SDA" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="678" as="geometry" />
+        </mxCell>
+        <mxCell id="p159" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="n159" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="159" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="n160" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="160" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="p160" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_SCL" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="694" as="geometry" />
+        </mxCell>
+        <mxCell id="p161" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_CK_P" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="n161" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="161" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="n162" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="162" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="p162" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI1_CEC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="p163" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="HDMI0_CK_N" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="n163" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="163" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="n164" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="164" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="p164" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="p165" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="n165" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="165" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="n166" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="166" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="p166" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="p167" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SD_DAT0" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="n167" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="167" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="n168" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="168" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="p168" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="p169" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SD_DAT1" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="n169" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="169" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="n170" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="170" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="p170" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="774" as="geometry" />
+        </mxCell>
+        <mxCell id="p171" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SD_DAT2" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="n171" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="171" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="n172" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="172" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="p172" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SD_CLK" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="p173" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SD_DAT3" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="n173" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="173" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="n174" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="174" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="p174" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="SD_CMD" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="p175" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="n175" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="175" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="n176" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="176" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="p176" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="822" as="geometry" />
+        </mxCell>
+        <mxCell id="p177" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+5V" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="n177" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="177" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="n178" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="178" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="p178" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="p179" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+5V" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="n179" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="179" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="n180" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="180" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="p180" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="p181" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+5V" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="n181" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="181" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="n182" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="182" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="p182" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="deprec" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="p183" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+5V" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="n183" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="183" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="n184" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="184" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="p184" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="deprec" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="886" as="geometry" />
+        </mxCell>
+        <mxCell id="p185" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+5V" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="n185" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="185" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="n186" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="186" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="p186" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="deprec" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="p187" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+5V" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="n187" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="187" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="n188" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="188" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="p188" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="deprec" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="p189" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="n189" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="189" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="n190" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="190" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="p190" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="VBAT_RTC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="p191" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="+1V8_VREF" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="n191" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="191" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="n192" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="192" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="p192" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="p193" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="n193" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="193" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="n194" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="194" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="p194" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="966" as="geometry" />
+        </mxCell>
+        <mxCell id="p195" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="GND" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="n195" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="195" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="n196" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="196" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="p196" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="p197" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="Fan_PWM" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="n197" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="197" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="n198" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="198" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="p198" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="998" as="geometry" />
+        </mxCell>
+        <mxCell id="p199" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1310" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="n199" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="199" vertex="1">
+          <mxGeometry height="16" width="22" x="1440" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="n200" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontFamily=Consolas;fontStyle=1;" value="200" vertex="1">
+          <mxGeometry height="16" width="22" x="1462" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="p200" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=7;fontFamily=Consolas;align=center;verticalAlign=middle;" value="NC" vertex="1">
+          <mxGeometry height="16" width="130" x="1484" y="1014" as="geometry" />
+        </mxCell>
+        <mxCell id="40" parent="1" style="text;html=1;align=center;fontSize=13;fontColor=#333333;" value="&lt;b&gt;Resumen por estado&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="600" x="630" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6ffe6;strokeColor=#228B22;strokeWidth=2;fontSize=10;align=left;spacingLeft=12;verticalAlign=top;spacingTop=8;" value="&lt;font style=&quot;font-size:11px&quot;&gt;&lt;b&gt;✅ ASIGNADOS (borde sólido):&lt;/b&gt;&lt;br&gt;• Ethernet RGMII (J1 1-22)&lt;br&gt;• USB 2.0 (J2 101-105)&lt;br&gt;• PCIe Gen3 x1 (J2 102-129)&lt;br&gt;• HDMI0 (J2 135-163)&lt;br&gt;• HAT EEPROM I²C0 (J2 122, 124)&lt;br&gt;• nRPI_BOOT + GLOBAL_EN + RUN_PG + nEXTRST&lt;br&gt;• GPIO 0-5, 7-11, 14-27 (UART/I²C/SPI/control)&lt;br&gt;• +5V x6 (J2 177-187) + VBAT (190) + Fan_PWM (197)&lt;br&gt;• +3V3 + todos los GND&lt;/font&gt;" vertex="1">
+          <mxGeometry height="220" width="600" x="630" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#CC0000;strokeWidth=1;strokeDasharray=3 3;fontSize=10;align=left;spacingLeft=12;verticalAlign=top;spacingTop=8;" value="&lt;font style=&quot;font-size:11px&quot;&gt;&lt;b&gt;🆓 LIBRES (borde punteado):&lt;/b&gt;&lt;br&gt;• CAM1 MIPI CSI (J1 24-50) — cámara&lt;br&gt;• DSI1 MIPI (J1 54-78) — display secundario&lt;br&gt;• DSI0 MIPI (J1 84-98) — display 7&quot; touch&lt;br&gt;• HDMI1 (J2 132-162) — segundo display&lt;br&gt;• SD card alterno (J2 167-174) — solo si no usás eMMC&lt;br&gt;• GPIO 6, 12, 13 — uso futuro&lt;br&gt;• Pines deprecated (J2 182, 184, 186, 188)&lt;br&gt;• nUSB_BOOT (J2 112), CAM_GPIO (127), VDAC_COMP (128)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="200" width="600" x="630" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="43" parent="1" style="text;html=1;align=center;fontSize=12;" value="&lt;b&gt;Leyenda — Color por clase de señal&lt;/b&gt;" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="44" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;" value="High-speed differential pair (PCIe / USB / HDMI / Ethernet / MIPI)" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;" value="GPIO / single-ended signal (incl. SDIO, mikroBUS signals)" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="652" as="geometry" />
+        </mxCell>
+        <mxCell id="46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;" value="Power rails (+3V3, +5V, VBAT)" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="679" as="geometry" />
+        </mxCell>
+        <mxCell id="47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=#999999;strokeWidth=2;fontSize=10;" value="GND" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="706" as="geometry" />
+        </mxCell>
+        <mxCell id="48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#FF8C00;strokeWidth=2;fontSize=10;" value="Control signal (RESET, EN, BOOT, CLK_REQ, PWR_EN)" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="733" as="geometry" />
+        </mxCell>
+        <mxCell id="49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;strokeWidth=1;strokeDasharray=2 2;fontSize=10;" value="Reservado / NC / deprecated" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="50" parent="1" style="text;html=1;align=center;fontSize=12;" value="&lt;b&gt;Mapping crítico → tu carrier&lt;/b&gt;" vertex="1">
+          <mxGeometry height="22" width="600" x="630" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e6;strokeColor=#FF8C00;strokeWidth=2;fontSize=10;align=left;spacingLeft=12;verticalAlign=top;spacingTop=8;" value="&lt;font style=&quot;font-size:10px&quot;&gt;• &lt;b&gt;Power IN&lt;/b&gt;: paralelizar TODOS los +5V (J2 177/179/181/183/185/187)&lt;br&gt;• &lt;b&gt;BMC arbitration&lt;/b&gt;: GLOBAL_EN (118) ← open-drain OR con RTC/PD/btn&lt;br&gt;• &lt;b&gt;Recovery&lt;/b&gt;: nRPI_BOOT (110) ← USB-C mode switch · nBOOT_SELECT (108)&lt;br&gt;• &lt;b&gt;HAT auto-detect&lt;/b&gt;: AT24C256 en SDA0 (122) + SCL0 (124) → DT overlay&lt;br&gt;• &lt;b&gt;VBAT&lt;/b&gt;: pin 190 ← CR2032 (RTC backup)&lt;br&gt;• &lt;b&gt;Fan_PWM&lt;/b&gt;: pin 197 → JST PH 3-pin (5V/PWM/Tach)&lt;br&gt;&lt;br&gt;&lt;i&gt;Verificar mapping exacto contra schematic CM5_Project_20260508.pdf y datasheet CM5 oficial para señales nuevas (USB 3.0 SS)&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="220" width="600" x="630" y="825" as="geometry" />
+        </mxCell>
+        <mxCell id="60" parent="1" style="text;html=1;align=center;fontSize=9;fontColor=#666666;" value="&lt;i&gt;Fuente: Raspberry Pi CM4 Datasheet RP-008168-DS-1 · CM5 backward-compatible · status (used/free) basado en CM5_Project_20260508 schematic&lt;/i&gt;" vertex="1">
+          <mxGeometry height="30" width="1740" x="60" y="1070" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

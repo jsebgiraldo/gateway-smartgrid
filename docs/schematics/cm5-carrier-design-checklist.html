@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cm5-carrier-design-checklist</title><style>
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", Arial, sans-serif; font-size: 15px; line-height: 1.6;
+  color: #1a1a1a; background: #eef1f4; margin: 0; padding: 32px 16px;
+}
+.page {
+  max-width: 920px; margin: 0 auto; background: #fff; padding: 40px 48px;
+  border-radius: 10px; box-shadow: 0 2px 18px rgba(0,0,0,.08);
+}
+h1 { font-size: 28px; color: #0b3d66; border-bottom: 3px solid #0b3d66;
+     padding-bottom: 8px; margin: 0 0 18px; }
+h2 { font-size: 21px; color: #15558d; border-bottom: 1px solid #c5d6e6;
+     padding-bottom: 4px; margin: 30px 0 12px; }
+h3 { font-size: 17px; color: #1c6aa8; margin: 22px 0 8px; }
+h4 { font-size: 14px; color: #2a2a2a; margin: 14px 0 6px; }
+p { margin: 8px 0; }
+a { color: #1c6aa8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font-family: Consolas, monospace; font-size: 13px;
+       background: #f2f4f7; padding: 2px 5px; border-radius: 4px; }
+pre { background: #f7f8fa; border: 1px solid #dde2e8; border-radius: 6px;
+      padding: 12px 14px; overflow-x: auto; }
+pre code { background: none; padding: 0; font-size: 12.5px; line-height: 1.4; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+th { background: #15558d; color: #fff; text-align: left; padding: 8px 10px;
+     border: 1px solid #15558d; font-weight: 600; }
+td { padding: 7px 10px; border: 1px solid #cdd6e0; vertical-align: top; }
+tr:nth-child(even) td { background: #f4f7fa; }
+ul, ol { margin: 8px 0 8px 4px; padding-left: 24px; }
+li { margin: 4px 0; }
+.chk { font-size: 16px; vertical-align: -1px; }
+.chk.done { color: #1a9850; }
+.chk.todo { color: #b0b0b0; }
+hr { border: none; border-top: 1px solid #d0d7de; margin: 24px 0; }
+strong { color: #111; }
+blockquote { border-left: 4px solid #c5d6e6; margin: 10px 0; padding: 4px 16px;
+             color: #555; background: #fafcfe; }
+@media (max-width: 600px) { .page { padding: 24px 18px; } body { padding: 12px 6px; } }
+</style></head>
+<body><div class="page"><h1 id="cm5-carrier-board-design-checklist">CM5 Carrier Board — Design Checklist</h1>
+<p>Notas y checklist para la carrier propia compatible con CM5 (y otros SOMs) orientada a <strong>edge gateway industrial / AMI</strong>.
+Documento de seguimiento — marcar <code>[x]</code> a medida que se incorpora al schematic / BoM.</p>
+<ul>
+<li><strong>Schematic actual:</strong> <a href="CM5_Project_20260508.pdf">CM5_Project_20260508.pdf</a></li>
+<li><strong>Referencia comparada:</strong> Seeed reComputer R1000 — <a href="https://wiki.seeedstudio.com/recomputer_r/">https://wiki.seeedstudio.com/recomputer_r/</a></li>
+<li><strong>Fecha de creación:</strong> 2026-05-28</li>
+</ul>
+<hr />
+<h2 id="1-estado-actual-vs-recomputer-r1000">1. Estado actual vs reComputer R1000</h2>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>CM5_Project (actual)</th>
+<th>reComputer R1000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoM</td>
+<td>CM5 (PCIe Gen3, RP1)</td>
+<td>CM4 (PCIe Gen2)</td>
+</tr>
+<tr>
+<td>Mini PCIe</td>
+<td>2 slots (LTE + GP)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>MikroBUS</td>
+<td>2 sockets</td>
+<td>—</td>
+</tr>
+<tr>
+<td>M.2 NVMe</td>
+<td>Sí</td>
+<td>Sí (Gen2)</td>
+</tr>
+<tr>
+<td>USB-C</td>
+<td>PD sink + RPiBoot dual-mode</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ethernet</td>
+<td>2x GbE</td>
+<td>1x GbE + 1x FE</td>
+</tr>
+<tr>
+<td>HDMI / DSI</td>
+<td>HDMI0 + HDMI1 + DSI</td>
+<td>1x HDMI 2.0</td>
+</tr>
+<tr>
+<td>Power in</td>
+<td>PoE + DC jack + USB-C PD</td>
+<td>9-36 V DC + PoE</td>
+</tr>
+<tr>
+<td>RS485 aislado</td>
+<td>—</td>
+<td>3 canales</td>
+</tr>
+<tr>
+<td>TPM 2.0</td>
+<td>—</td>
+<td>SLB9670 opcional</td>
+</tr>
+<tr>
+<td>Secure element</td>
+<td>—</td>
+<td>ATECC608A</td>
+</tr>
+<tr>
+<td>RTC + batería</td>
+<td>—</td>
+<td>CR2032 backup</td>
+</tr>
+<tr>
+<td>HW Watchdog externo</td>
+<td>—</td>
+<td>1-255 s</td>
+</tr>
+<tr>
+<td>Supercap UPS</td>
+<td>—</td>
+<td>LTC3350 opcional</td>
+</tr>
+<tr>
+<td>Surge / ESD / EFT</td>
+<td>no visible</td>
+<td>EN61000</td>
+</tr>
+<tr>
+<td>Botones Reset/Reboot</td>
+<td>—</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-requisitos-del-proyecto">2. Requisitos del proyecto</h2>
+<ul>
+<li><span class="chk done">&#9745;</span> 2 slots para LTE / NTN / WiMAX / Wi-Fi HaLow -&gt; ya cubierto con 2x mini PCIe</li>
+<li><span class="chk done">&#9745;</span> Radios secundarios Wi-SUN / Thread / LoRa -&gt; 2x mikroBUS + UART/SPI por GPIO expander</li>
+<li><span class="chk done">&#9745;</span> 2x Ethernet para LAN / SCADA -&gt; ya cubierto</li>
+<li><span class="chk todo">&#9744;</span> RS485 / RS232 aislado para integracion industrial</li>
+<li><span class="chk todo">&#9744;</span> GPIO aislado tipo PLC (24 V)</li>
+<li><span class="chk todo">&#9744;</span> Compatibilidad con SOMs alternos (CM4 ya OK; evaluar SMARC en rev. 2)</li>
+</ul>
+<hr />
+<h2 id="3-ics-a-incorporar-checklist-por-categoria">3. ICs a incorporar — checklist por categoria</h2>
+<h3 id="a-seguridad">A) Seguridad</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> <strong>TPM 2.0</strong> — Infineon <strong>OPTIGA SLB9672</strong> (SPI, FIPS 140-3)</li>
+<li><span class="chk todo">&#9744;</span> <strong>Secure Element</strong> — NXP <strong>SE050C2</strong> (I2C, EdgeLock, AWS/Azure helpers, CC EAL6+)
+      Alternativa low-cost: Microchip <strong>ATECC608B</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>Anti-tamper</strong> (opcional AMI) — Maxim <strong>DS28E38</strong> (DeepCover)</li>
+</ul>
+<h3 id="b-time-keeping-power-integrity">B) Time-keeping &amp; Power Integrity</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> <strong>RTC con bateria</strong> — NXP <strong>PCF85063A</strong> o Microchip <strong>MCP7940N</strong> (I2C)
+      Alternativa robusta: Maxim <strong>DS3231M</strong> (MEMS, +-5 ppm)</li>
+<li><span class="chk todo">&#9744;</span> <strong>Holdup CR2032</strong> + portabateria</li>
+<li><span class="chk todo">&#9744;</span> <strong>Supercap UPS</strong> — Linear <strong>LTC3350</strong> (carga/balanceo 1-4 supercaps, PWR_FAIL)
+      Alternativa: TI <strong>BQ25171</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>Voltage supervisor / watchdog externo</strong> — TI <strong>TPS3823</strong> o Maxim <strong>MAX6369</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>Power-good aggregator</strong> de las 5 rieles 3V3 — TI <strong>TPS3702</strong> discreto</li>
+</ul>
+<h3 id="c-es-industrial">C) E/S industrial</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> <strong>RS485 aislado x2-x4</strong> — Analog <strong>ADM2587E</strong> (5 kVrms, DC/DC integrado)
+      Alternativa: TI <strong>ISO1450</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>RS232</strong> — Maxim <strong>MAX3232</strong> o <strong>SP3232E</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>CAN aislado</strong> (opcional EV/BMS) — TI <strong>TCAN1462 + ISO1042</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>GPIO aislado entrada 24V</strong> (IEC 61131-2) — TI <strong>ISO1212</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>GPIO aislado salida</strong> — TI <strong>TPSI3052</strong> o relevo estado solido <strong>CPC1218</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>Level shifter 1V8/3V3 &lt;-&gt; 5V</strong> — TI <strong>TXS0108E</strong> o <strong>NLSV2T244</strong></li>
+</ul>
+<h3 id="d-conectividad-radios">D) Conectividad / radios</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> Footprint <strong>mikroBUS</strong> para Wi-SUN FG25 (repo <code>firmware-ami-wisun-fg25</code>)</li>
+<li><span class="chk todo">&#9744;</span> Footprint para Thread/Matter — SiLabs <strong>MGM240P</strong> o Nordic <strong>nRF54L15</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>LoRa concentrador 8-canal</strong> — Semtech <strong>SX1303</strong> via mPCIe (RAK2287/RAK5146)</li>
+<li><span class="chk todo">&#9744;</span> <strong>Wi-Fi HaLow (802.11ah)</strong> — Morse Micro <strong>MM6108</strong> o Newracom <strong>NRC7292</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>NTN / satelital</strong> (opcional) — Sony <strong>ALT1350</strong> o u-blox <strong>SARA-R510 NB10S</strong></li>
+</ul>
+<h3 id="e-red-avanzada">E) Red avanzada</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> <strong>Switch L2 administrado (TSN/AVB/MRP)</strong> — Microchip <strong>KSZ9897</strong> (7 puertos GbE)
+      Alternativa simple: Realtek <strong>RTL8367N</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>SPE 100BASE-T1</strong> — TI <strong>DP83TC811R-Q1</strong> o NXP <strong>TJA1101</strong></li>
+</ul>
+<h3 id="f-sensado-de-salud">F) Sensado de salud</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> <strong>Power monitor por riel</strong> — TI <strong>INA228</strong> (20-bit) o <strong>INA260</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>Temperatura PCB</strong> — TI <strong>TMP117</strong> (+-0.1 C) cerca de CM5 y radios</li>
+<li><span class="chk todo">&#9744;</span> <strong>Acelerometro / tilt</strong> — ST <strong>LIS2DH12</strong> (wake-on-motion, anti-tamper)</li>
+<li><span class="chk todo">&#9744;</span> <strong>LED RGB driver</strong> — NXP <strong>PCA9956B</strong> para panel frontal sin gastar GPIOs</li>
+</ul>
+<h3 id="g-proteccion">G) Proteccion</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> <strong>TVS Ethernet</strong> — NXP <strong>PESD2ETH</strong> o magnetics con bypass (EN 61000-4-5)</li>
+<li><span class="chk todo">&#9744;</span> <strong>TVS RS485</strong> — TI <strong>TPD2E007</strong> o Bourns <strong>CDSOT236</strong> (8 kV ESD HBM)</li>
+<li><span class="chk todo">&#9744;</span> <strong>TVS USB-C</strong> — TI <strong>TPD8S300</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>Surge DC input</strong> — Bourns <strong>SMAJ</strong> + fusible PTC</li>
+<li><span class="chk todo">&#9744;</span> Fusibles reseteables (PTC) en cada VBUS de salida</li>
+</ul>
+<h3 id="h-storage-y-misc">H) Storage y misc</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> <strong>HAT ID EEPROM</strong> — Microchip <strong>AT24C256</strong> (DT overlay automatico al CM5)</li>
+<li><span class="chk todo">&#9744;</span> <strong>FRAM</strong> para contadores AMI sin desgaste de eMMC — Fujitsu <strong>MB85RC256V</strong></li>
+<li><span class="chk todo">&#9744;</span> <strong>I2C mux</strong> (si &gt;8 dispositivos I2C) — TI <strong>PCA9548A</strong></li>
+</ul>
+<hr />
+<h2 id="4-compatibilidad-multi-som">4. Compatibilidad multi-SOM</h2>
+<ul>
+<li><span class="chk done">&#9745;</span> Footprint <strong>DDR2-100 CM4/CM5</strong> ya en uso -&gt; abre catalogo: Radxa CM5, BPI-CM5, Pine64 SOQuartz</li>
+<li><span class="chk todo">&#9744;</span> Reservar area para <strong>conector SMARC 2.1</strong> (314-pin MXM-3) en rev. 2</li>
+<li><span class="chk todo">&#9744;</span> Adaptador CM5 &lt;-&gt; SMARC como PCB hijo (no rediseñar la carrier base)</li>
+<li><span class="chk todo">&#9744;</span> Documentar mapping de senales criticas (PCIe, USB3, GbE x2, MIPI, HDMI) en una tabla pinout</li>
+</ul>
+<hr />
+<h2 id="5-prioridades-por-revision">5. Prioridades por revision</h2>
+<h3 id="rev-1-inmediata-imprescindibles">Rev. 1 (inmediata) — IMPRESCINDIBLES</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> TPM 2.0 (SLB9672)</li>
+<li><span class="chk todo">&#9744;</span> Secure Element (SE050C2 o ATECC608B)</li>
+<li><span class="chk todo">&#9744;</span> RTC + supercap UPS (PCF85063A + LTC3350)</li>
+<li><span class="chk todo">&#9744;</span> Watchdog externo (TPS3823)</li>
+<li><span class="chk todo">&#9744;</span> RS485 aislado x2 (ADM2587E)</li>
+<li><span class="chk todo">&#9744;</span> TVS en USB-C, Ethernet, RS485, DC-in</li>
+<li><span class="chk todo">&#9744;</span> HAT ID EEPROM (AT24C256)</li>
+<li><span class="chk todo">&#9744;</span> Botones Reset / Reboot / User</li>
+</ul>
+<h3 id="rev-2-deseables">Rev. 2 — DESEABLES</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> INA228 en VIN, 5V, 3V3_ALL_BOARD</li>
+<li><span class="chk todo">&#9744;</span> TMP117 (2 puntos) + LIS2DH12</li>
+<li><span class="chk todo">&#9744;</span> ISO1212 (4-8 entradas digitales 24 V)</li>
+<li><span class="chk todo">&#9744;</span> Switch KSZ9897 (anillo industrial)</li>
+<li><span class="chk todo">&#9744;</span> Footprint SMARC 2.1 reservado</li>
+</ul>
+<h3 id="rev-3-diferenciadores">Rev. 3 — DIFERENCIADORES</h3>
+<ul>
+<li><span class="chk todo">&#9744;</span> LoRa concentrador SX1303 (mPCIe)</li>
+<li><span class="chk todo">&#9744;</span> Footprint NTN (ALT1350)</li>
+<li><span class="chk todo">&#9744;</span> SPE 100BASE-T1</li>
+<li><span class="chk todo">&#9744;</span> Wi-Fi HaLow</li>
+</ul>
+<hr />
+<h2 id="6-pendientes-de-decision">6. Pendientes de decision</h2>
+<ul>
+<li><span class="chk todo">&#9744;</span> Aislacion galvanica en RS485: 5 kV (industrial) vs 2.5 kV (basico)?</li>
+<li><span class="chk todo">&#9744;</span> Encapsulado / gabinete: IP40 (R1000) vs IP54+ (campo abierto AMI)?</li>
+<li><span class="chk todo">&#9744;</span> Rail DIN vs caja libre</li>
+<li><span class="chk todo">&#9744;</span> PoE: 802.3af (~13 W) suficiente o necesitamos at (~25 W) por LTE + LoRa + NVMe simultaneos?</li>
+<li><span class="chk todo">&#9744;</span> Wi-Fi/BLE: usar variante CM5 wireless o footprint M.2 1216 propio?</li>
+<li><span class="chk todo">&#9744;</span> Etiqueta de mercado: IEC 61131-2 (PLC), IEC 61850 (subestacion), o solo CE/FCC?</li>
+</ul></div></body></html>

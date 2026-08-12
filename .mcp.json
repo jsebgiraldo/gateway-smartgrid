@@ -31,6 +31,37 @@
         "--security-opt", "no-new-privileges:true",
         "openwrt-ssh-mcp:latest"
       ]
+    },
+    "thingsboard-local": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--add-host", "host.docker.internal:host-gateway",
+        "--env-file", "C:\\Users\\jsgir\\Documents\\UNAL\\Gateway\\secrets\\thingsboard-local.env",
+        "thingsboard/mcp:latest"
+      ]
+    },
+    "thingsboard-pi4-edge": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--env-file", "C:\\Users\\jsgir\\Documents\\UNAL\\Gateway\\secrets\\thingsboard-pi4-edge.env",
+        "thingsboard/mcp:latest"
+      ]
+    },
+    "thingsboard-emsitech": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--env-file", "C:\\Users\\jsgir\\Documents\\UNAL\\Gateway\\secrets\\thingsboard-emsitech.env",
+        "thingsboard/mcp:latest"
+      ]
     }
   }
 }

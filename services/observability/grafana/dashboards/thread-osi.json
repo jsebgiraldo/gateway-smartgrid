@@ -1,0 +1,112 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "graphTooltip": 1,
+  "schemaVersion": 39,
+  "tags": ["thread", "802.15.4", "openthread", "mesh"],
+  "time": {"from": "now-1h", "to": "now"},
+  "timezone": "",
+  "title": "Thread / 802.15.4 (OSI)",
+  "uid": "thread-osi",
+  "version": 1,
+  "refresh": "15s",
+  "panels": [
+    {"type":"row","title":"Malla — Overview","collapsed":false,"gridPos":{"x":0,"y":0,"w":24,"h":1},"id":1,"panels":[]},
+
+    {"type":"stat","title":"Rol del OTBR","id":2,"gridPos":{"x":0,"y":1,"w":5,"h":4},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_node_role"}],
+     "fieldConfig":{"defaults":{"mappings":[{"type":"value","options":{"0":{"text":"disabled","color":"red"},"1":{"text":"detached","color":"orange"},"2":{"text":"child","color":"yellow"},"3":{"text":"router","color":"blue"},"4":{"text":"leader","color":"green"}}}]}},
+     "options":{"colorMode":"background","graphMode":"none","textMode":"value"}},
+
+    {"type":"stat","title":"Exporter","id":3,"gridPos":{"x":5,"y":1,"w":3,"h":4},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_up"}],
+     "fieldConfig":{"defaults":{"mappings":[{"type":"value","options":{"0":{"text":"DOWN","color":"red"},"1":{"text":"UP","color":"green"}}}]}},
+     "options":{"colorMode":"background","graphMode":"none","textMode":"value"}},
+
+    {"type":"stat","title":"Routers","id":4,"gridPos":{"x":8,"y":1,"w":3,"h":4},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_router_count"}],
+     "fieldConfig":{"defaults":{"unit":"none","color":{"mode":"fixed","fixedColor":"blue"}}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Children","id":5,"gridPos":{"x":11,"y":1,"w":3,"h":4},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_child_count"}],
+     "fieldConfig":{"defaults":{"unit":"none"}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Vecinos","id":6,"gridPos":{"x":14,"y":1,"w":3,"h":4},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_neighbor_count"}],
+     "fieldConfig":{"defaults":{"unit":"none"}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"stat","title":"Canal","id":7,"gridPos":{"x":17,"y":1,"w":3,"h":4},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_channel"}],
+     "fieldConfig":{"defaults":{"unit":"none"}},
+     "options":{"colorMode":"none","graphMode":"none","textMode":"value"}},
+
+    {"type":"stat","title":"Cambios de partición (1h)","id":8,"gridPos":{"x":20,"y":1,"w":4,"h":4},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"increase(thread_mle_partition_id_changes_total[1h])"}],
+     "fieldConfig":{"defaults":{"unit":"none","thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":1},{"color":"red","value":5}]}}},
+     "options":{"colorMode":"value","graphMode":"area","textMode":"auto"}},
+
+    {"type":"row","title":"L1 — PHY (radio, canal)","collapsed":false,"gridPos":{"x":0,"y":5,"w":24,"h":1},"id":10,"panels":[]},
+
+    {"type":"timeseries","title":"RSSI por vecino (dBm)","id":11,"gridPos":{"x":0,"y":6,"w":12,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_neighbor_avg_rssi_dbm","legendFormat":"{{rloc16}}"}],
+     "fieldConfig":{"defaults":{"unit":"dBm","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10,"spanNulls":true,"showPoints":"never"}}},
+     "options":{"legend":{"displayMode":"table","placement":"right","calcs":["last","min","max"]},"tooltip":{"mode":"multi"}}},
+
+    {"type":"timeseries","title":"LQI in por vecino (0-3)","id":12,"gridPos":{"x":12,"y":6,"w":6,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_neighbor_lqi_in","legendFormat":"{{rloc16}}"}],
+     "fieldConfig":{"defaults":{"unit":"none","min":0,"max":3,"custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}},
+     "options":{"legend":{"displayMode":"list","placement":"bottom"},"tooltip":{"mode":"multi"}}},
+
+    {"type":"timeseries","title":"Canal ocupado — CCA fails/s (TxErrCca)","id":13,"gridPos":{"x":18,"y":6,"w":6,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"rate(thread_mac_tx_err_cca_total[5m])","legendFormat":"CCA fail/s"}],
+     "fieldConfig":{"defaults":{"unit":"ops","custom":{"drawStyle":"bars","fillOpacity":60,"lineWidth":1},"color":{"mode":"fixed","fixedColor":"orange"}}},
+     "options":{"legend":{"displayMode":"list","placement":"bottom"}}},
+
+    {"type":"row","title":"L2 — MAC (IEEE 802.15.4)","collapsed":false,"gridPos":{"x":0,"y":13,"w":24,"h":1},"id":20,"panels":[]},
+
+    {"type":"timeseries","title":"Frames MAC Tx/Rx por segundo","id":21,"gridPos":{"x":0,"y":14,"w":12,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"rate(thread_mac_tx_frames_total[5m])","legendFormat":"Tx"},{"refId":"B","expr":"rate(thread_mac_rx_frames_total[5m])","legendFormat":"Rx"}],
+     "fieldConfig":{"defaults":{"unit":"ops","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":10}}},
+     "options":{"legend":{"displayMode":"list","placement":"bottom"},"tooltip":{"mode":"multi"}}},
+
+    {"type":"gauge","title":"Ratio ACK (Acked/AckRequested)","id":22,"gridPos":{"x":12,"y":14,"w":6,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"100 * thread_mac_tx_acked_total / clamp_min(thread_mac_tx_ack_requested_total, 1)"}],
+     "fieldConfig":{"defaults":{"unit":"percent","min":0,"max":100,"thresholds":{"mode":"absolute","steps":[{"color":"red","value":null},{"color":"orange","value":85},{"color":"green","value":95}]}}},
+     "options":{"showThresholdMarkers":true,"showThresholdLabels":false}},
+
+    {"type":"timeseries","title":"Retries y errores FCS (CRC) /s","id":23,"gridPos":{"x":18,"y":14,"w":6,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"rate(thread_mac_tx_retry_total[5m])","legendFormat":"retry/s"},{"refId":"B","expr":"rate(thread_mac_rx_err_fcs_total[5m])","legendFormat":"FCS err/s"}],
+     "fieldConfig":{"defaults":{"unit":"ops","custom":{"drawStyle":"line","lineWidth":2}}},
+     "options":{"legend":{"displayMode":"list","placement":"bottom"}}},
+
+    {"type":"timeseries","title":"Tx Unicast vs Broadcast /s","id":24,"gridPos":{"x":0,"y":21,"w":12,"h":6},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"rate(thread_mac_tx_unicast_total[5m])","legendFormat":"unicast"},{"refId":"B","expr":"rate(thread_mac_tx_broadcast_total[5m])","legendFormat":"broadcast"}],
+     "fieldConfig":{"defaults":{"unit":"ops","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":25,"stacking":{"mode":"normal"}}}},
+     "options":{"legend":{"displayMode":"list","placement":"bottom"},"tooltip":{"mode":"multi"}}},
+
+    {"type":"timeseries","title":"Uso del canal — frames totales /s (Tx+Rx)","id":25,"gridPos":{"x":12,"y":21,"w":12,"h":6},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"rate(thread_mac_tx_frames_total[5m]) + rate(thread_mac_rx_frames_total[5m])","legendFormat":"frames/s"}],
+     "fieldConfig":{"defaults":{"unit":"ops","custom":{"drawStyle":"line","lineWidth":2,"fillOpacity":25},"color":{"mode":"fixed","fixedColor":"purple"}}},
+     "options":{"legend":{"displayMode":"list","placement":"bottom"}}},
+
+    {"type":"row","title":"L3 — Red (MLE, IPv6, 6LoWPAN)","collapsed":false,"gridPos":{"x":0,"y":27,"w":24,"h":1},"id":30,"panels":[]},
+
+    {"type":"timeseries","title":"Paquetes IPv6 Tx/Rx (éxito y fallo) /s","id":31,"gridPos":{"x":0,"y":28,"w":12,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"rate(thread_ip_tx_success_total[5m])","legendFormat":"Tx ok"},{"refId":"B","expr":"rate(thread_ip_rx_success_total[5m])","legendFormat":"Rx ok"},{"refId":"C","expr":"rate(thread_ip_tx_failed_total[5m])","legendFormat":"Tx fail"},{"refId":"D","expr":"rate(thread_ip_rx_failed_total[5m])","legendFormat":"Rx fail"}],
+     "fieldConfig":{"defaults":{"unit":"ops","custom":{"drawStyle":"line","lineWidth":2}}},
+     "options":{"legend":{"displayMode":"table","placement":"right","calcs":["last"]},"tooltip":{"mode":"multi"}}},
+
+    {"type":"piechart","title":"Tiempo acumulado por rol","id":32,"gridPos":{"x":12,"y":28,"w":6,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"thread_mle_time_in_role_ms_total","legendFormat":"{{role}}"}],
+     "fieldConfig":{"defaults":{"unit":"ms"}},
+     "options":{"legend":{"displayMode":"list","placement":"right"},"pieType":"donut","reduceOptions":{"calcs":["lastNotNull"]}}},
+
+    {"type":"timeseries","title":"6LoWPAN — frames MAC por paquete IP (overhead/fragmentación)","id":33,"gridPos":{"x":18,"y":28,"w":6,"h":7},"datasource":"Prometheus",
+     "targets":[{"refId":"A","expr":"rate(thread_mac_tx_frames_total[5m]) / clamp_min(rate(thread_ip_tx_success_total[5m]), 0.001)","legendFormat":"frames/pkt"}],
+     "fieldConfig":{"defaults":{"unit":"none","custom":{"drawStyle":"line","lineWidth":2}}},
+     "options":{"legend":{"displayMode":"list","placement":"bottom"}}}
+  ]
+}

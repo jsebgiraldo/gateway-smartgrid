@@ -1,0 +1,337 @@
+{
+  "configuration": {
+    "description": "AMI ESP32-C6 LwM2M nodes over Thread 802.15.4. Active alarms + per-node table covering health, electrical (COSEM), LwM2M registration, and 802.15.4 MAC counters.",
+    "entityAliases": {
+      "37be124c-8806-474f-8657-de676c5bb73c": {
+        "alias": "All devices",
+        "filter": {
+          "deviceType": "AMI_LwM2M_Node",
+          "resolveMultiple": true,
+          "type": "deviceType"
+        },
+        "id": "37be124c-8806-474f-8657-de676c5bb73c"
+      },
+      "f2bb1bd0-4c61-4d90-9653-410fca842678": {
+        "alias": "AMI nodes",
+        "filter": {
+          "deviceNamePattern": "ami-esp32c6",
+          "deviceType": "AMI_LwM2M_Node",
+          "resolveMultiple": true,
+          "type": "deviceType"
+        },
+        "id": "f2bb1bd0-4c61-4d90-9653-410fca842678"
+      }
+    },
+    "settings": {
+      "showDashboardsSelect": true,
+      "showTitle": true,
+      "stateControllerId": "entity"
+    },
+    "states": {
+      "default": {
+        "layouts": {
+          "main": {
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "columns": 24,
+              "margin": 10,
+              "outerMargin": true
+            },
+            "widgets": {
+              "1f8a91be-7339-55a6-a5e6-7667674aa688": {
+                "col": 0,
+                "row": 8,
+                "sizeX": 24,
+                "sizeY": 16
+              },
+              "932cf0b2-a135-5f23-807b-087c8c15074a": {
+                "col": 0,
+                "row": 0,
+                "sizeX": 24,
+                "sizeY": 8
+              }
+            }
+          }
+        },
+        "name": "AMI LwM2M - Monitoring",
+        "root": true
+      }
+    },
+    "timewindow": {
+      "realtime": {
+        "timewindowMs": 3600000
+      }
+    },
+    "widgets": {
+      "1f8a91be-7339-55a6-a5e6-7667674aa688": {
+        "col": 0,
+        "config": {
+          "datasources": [
+            {
+              "dataKeys": [
+                {
+                  "columnWidth": "0px",
+                  "label": "Active",
+                  "name": "active",
+                  "type": "attribute",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Thread role",
+                  "name": "thread_role",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Uptime (s)",
+                  "name": "uptime_s",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Reg OK",
+                  "name": "reg_success",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Recoveries",
+                  "name": "recover_count",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Watchdog",
+                  "name": "watchdog_count",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Last err",
+                  "name": "last_error_code",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "V",
+                  "name": "voltage",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Hz",
+                  "name": "frequency",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "FW",
+                  "name": "fw_version",
+                  "type": "attribute",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Resets",
+                  "name": "total_resets",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "A",
+                  "name": "current",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "P (W)",
+                  "name": "activePower",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Q (var)",
+                  "name": "reactivePower",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "S (VA)",
+                  "name": "apparentPower",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "PF",
+                  "name": "powerFactor",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "E act (Wh)",
+                  "name": "activeEnergy",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "T (C)",
+                  "name": "temperature",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Reg try",
+                  "name": "reg_attempts",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Notify",
+                  "name": "notify_emitted",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "Notify thr",
+                  "name": "notify_throttled",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "MAC TX",
+                  "name": "mac_tx_total",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "MAC RX",
+                  "name": "mac_rx_total",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "TX err",
+                  "name": "mac_tx_err_abort",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                },
+                {
+                  "columnWidth": "0px",
+                  "label": "RX err",
+                  "name": "mac_rx_err_no_frame",
+                  "type": "timeseries",
+                  "useCellContentFunction": false,
+                  "useCellStyleFunction": false
+                }
+              ],
+              "entityAliasId": "f2bb1bd0-4c61-4d90-9653-410fca842678",
+              "name": "AMI nodes",
+              "type": "entity"
+            }
+          ],
+          "settings": {
+            "defaultSortOrder": "entityName",
+            "displayEntityLabel": false,
+            "displayEntityName": true,
+            "displayEntityType": false,
+            "enableSearch": true,
+            "entitiesTitle": "AMI fleet nodes"
+          },
+          "showTitle": true,
+          "title": "AMI fleet nodes - health, electrical, LwM2M, MAC"
+        },
+        "row": 8,
+        "sizeX": 24,
+        "sizeY": 16,
+        "type": "latest",
+        "typeFullFqn": "system.entity_widgets.entities_table"
+      },
+      "932cf0b2-a135-5f23-807b-087c8c15074a": {
+        "col": 0,
+        "config": {
+          "alarmFilterConfig": {
+            "searchPropagatedAlarms": true,
+            "severityList": [],
+            "statusList": [
+              "ACTIVE"
+            ],
+            "typeList": []
+          },
+          "alarmSource": {
+            "name": "Alarms",
+            "type": "function"
+          },
+          "datasources": [
+            {
+              "name": "Fleet alarms",
+              "type": "alarmCount"
+            }
+          ],
+          "settings": {
+            "defaultSortOrder": "-createdTime",
+            "displayDetails": true,
+            "enableFilter": true,
+            "enableSearch": true,
+            "enableSelection": false
+          },
+          "showTitle": true,
+          "title": "Active fleet alarms"
+        },
+        "row": 0,
+        "sizeX": 24,
+        "sizeY": 8,
+        "type": "alarm",
+        "typeFullFqn": "system.alarm_widgets.alarms_table"
+      }
+    }
+  },
+  "image": null,
+  "mobileHide": false,
+  "title": "AMI LwM2M - Monitoring"
+}
