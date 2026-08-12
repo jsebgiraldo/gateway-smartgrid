@@ -25,6 +25,18 @@ services:
       POSTGRES_DB: thingsboard_edge
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    # Tuned for the edge's 1.85 GB RAM (see docs/edge/07_memory_budget.md +
+    # 08_data_locality.md). Defaults assume a beefy server and waste RAM here.
+    command:
+      - postgres
+      - -c
+      - shared_buffers=32MB           # was 128MB default — actual RAM saving
+      - -c
+      - effective_cache_size=128MB    # planner hint for limited cache
+      - -c
+      - maintenance_work_mem=16MB     # cap RAM spikes during VACUUM
+      - -c
+      - max_connections=20            # tb-edge uses ~10; default 100 wastes RAM
     volumes:
       - /opt/docker/tb-edge-data/db:/var/lib/postgresql/data
     healthcheck:
